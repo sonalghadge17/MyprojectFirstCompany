@@ -1,0 +1,22 @@
+<div class="modal-content">
+    <div class="card">
+      <div class="card-body">
+        <div class="modal-body">
+          <form [formGroup]="formGroup2">
+            <div class="mb-3">
+              <label class="form-label"><b>Terms and Condition</b></label>
+              <!-- <ckeditor [editor]="Editor" formControlName="termsAndCondition"></ckeditor> -->
+              <ckeditor [editor]="Editor" formControlName="termsAndCondition" [config]="editorConfig">
+              </ckeditor>
+            </div>
+          </form>
+          <div class="row">
+            <div class="d-flex gap-1 justify-content-end">
+              <button type="submit" class="btn btn-primary" (click)="saveabout()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

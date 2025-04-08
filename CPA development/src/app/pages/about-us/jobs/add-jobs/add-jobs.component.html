@@ -1,0 +1,284 @@
+<div class="modal-content">
+    <div class="modal-header p-3 bg-light">
+      <div class="col-6">
+        <h5 class="modal-title" id="myModalLabel" style="color: black">
+          <b>{{ id ? "Update Jobs" : "Add Jobs" }}</b>
+        </h5>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="modal.dismiss()"
+        aria-label="Close"
+      ></button>
+    </div>
+      
+          
+          <!-- Form Section -->
+          <div class="modal-body">
+              <div class="p-2">
+                <form [formGroup]="formGroup">
+                  <div class="row mb-3">
+                    <!-- Job Name and Experience section -->
+                    <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                    
+                        <label for="label" class="form-label">
+                          Job Position<span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="jobPosition"
+                          placeholder="Enter Job Position"
+                          [class.is-invalid]="isControlInvalid('jobPosition')"
+                          formControlName="jobPosition"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'jobPosition')"
+                        >
+                          Job Position is required.
+                        </div>
+                      </div>
+    
+                      <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                
+                        <label for="experience" class="form-label">
+                          Experience<span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="experience"
+                          placeholder="Enter Experience"
+                          [class.is-invalid]="isControlInvalid('experience')"
+                          formControlName="experience"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'experience')"
+                        >
+                          Experience is required.
+                        </div>
+                      </div>
+                    
+                  </div>
+                  <div class="row mb-3">
+                    <!-- Job Name and Experience section -->
+                    <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                    
+                        <label for="qualification" class="form-label">
+                          Qualification<span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="qualification"
+                          placeholder="Enter Qualification"
+                          [class.is-invalid]="isControlInvalid('qualification')"
+                          formControlName="qualification"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'qualification')"
+                        >
+                        Qualification is required.
+                        </div>
+                      </div>
+    
+                      <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                
+                        <label for="noOfVacancy" class="form-label">
+                          No Of Vacancy<span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="noOfVacancy"
+                          placeholder="Enter No Of Vacancy"
+                          [class.is-invalid]="isControlInvalid('noOfVacancy')"
+                          formControlName="noOfVacancy"
+                        />
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'noOfVacancy')"
+                        >
+                          No Of Vacancy is required.
+                        </div>
+                      </div>
+                    
+                  </div>
+                  <div class="row mb-3">
+                    <!-- Job Name and Experience section -->
+                    <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                    
+                        <label for="startSalary" class="form-label">
+                          Start Salary<span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                          <input
+                          type="number"
+                          class="form-control"
+                          id="startSalary"
+                          placeholder="Enter Start Salary"
+                          [class.is-invalid]="isControlInvalid('startSalary')"
+                          formControlName="startSalary"
+                        />
+                        <span class="input-group-text">$</span>
+                        <div
+                        class="invalid-feedback"
+                        *ngIf="controlHasError('required', 'startSalary')"
+                      >
+                      Start Salary is required.
+                      </div>
+                        </div>
+                       
+                       
+                      </div>
+    
+                     
+                
+                        <div class="col-lg-6 col-md-6 sol-sm-12 col-12">
+                          <label for="lastSalary" class="form-label">
+                            Last Salary<span class="text-danger">*</span>
+                          </label>
+                          <div class="input-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="lastSalary"
+                              placeholder="Enter Last Salary"
+                              [class.is-invalid]="isControlInvalid('lastSalary') || formGroup.hasError('salaryRangeInvalid')"
+                              formControlName="lastSalary"
+                            />
+                            <span class="input-group-text">$</span>
+                            <div class="invalid-feedback" *ngIf="formGroup.hasError('salaryRangeInvalid')">
+                              Last salary cannot be less than Start salary.
+                            </div>
+                            <div class="invalid-feedback" *ngIf="controlHasError('required', 'lastSalary')">
+                              Last Salary is required.
+                            </div>
+                          </div>
+                        </div>
+                       
+                     
+                 
+                    
+                  </div>
+                  <div class="row mb-3">
+                    <!-- From Date section -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <label class="d-block mb-2"><b>Last Date Of Apply</b></label>
+                      <div class="input-group">
+                        <input
+                        formControlName="lastDateOfApply"
+                        ngbDatepicker
+                        (ngModelChange)="Changelastdate()"
+                          class="form-control"
+                          [minDate]="today"
+                          placeholder="dd-MM-yyyy"
+                          #fromDatePicker="ngbDatepicker"
+                        />
+                        <div class="input-group-append" (click)="fromDatePicker.toggle()">
+                          <span class="input-group-text">
+                            <i class="mdi mdi-calendar"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="invalid-feedback" *ngIf="formGroup.get('lastDateOfApply')?.hasError('required')">
+                        From Date is required.
+                      </div>
+                    </div>
+                  
+                    <!-- To Date section -->
+                    <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <label class="d-block mb-2"><b>Close Date</b></label>
+                      <div class="input-group">
+                        <input
+                       
+                        formControlName="closeDate"
+                      
+                        ngbDatepicker
+                          class="form-control"
+                          placeholder="dd-MM-yyyy"
+                          #toDatePicker="ngbDatepicker"
+                        />
+                        <div class="input-group-append" (click)="toDatePicker.toggle()">
+                          <span class="input-group-text">
+                            <i class="mdi mdi-calendar"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="invalid-feedback" *ngIf="formGroup.get('closeDate')?.hasError('required')">
+                        To Date is required.
+                      </div>
+                    </div> -->
+                  </div>
+                 
+                  <!-- Answer section -->
+                  <div class="row">
+              
+                      <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                          <label for="tags" class="form-label">
+                            <b>Tags</b><span class="text-danger">*</span>
+                          </label>
+                          <input
+                          type="text"
+                          class="form-control"
+                          id="tags"
+                          placeholder="Enter Tags"
+                          [class.is-invalid]="isControlInvalid('tags')"
+                          formControlName="tags"
+                        />
+                          <div
+                            class="invalid-feedback"
+                            *ngIf="controlHasError('required', 'tags')"
+                          >
+                           Tags is required.
+                          </div>
+                        </div> -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                          <label for="answer" class="form-label">
+                            <b>Description</b><span class="text-danger">*</span>
+                          </label>
+                         
+                          <ckeditor [editor]="Editor" formControlName="description" [config]="editorConfig"></ckeditor>
+                          <!-- <textarea
+                            class="form-control"
+                            id="answer"
+                            placeholder="Enter Description"
+                            rows="4"
+                            autocomplete="off"
+                            formControlName="description"
+                         
+                          ></textarea> -->
+                          <div
+                            class="invalid-feedback"
+                            *ngIf="controlHasError('required', 'description')"
+                          >
+                            Description is required.
+                          </div>
+                        </div>
+                  </div>
+    
+                  <!-- Buttons for Save and Cancel -->
+                  <div class="col-lg-12 mt-2">
+                    <div class="hstack gap-2 justify-content-end">
+                      <button
+                        type="button"
+                        class="btn btn-light btn-elevate mr-2"
+                        (click)="modal.dismiss()">
+                        Cancel
+                      </button>
+                      <button class="btn btn-primary" (click)="save()" [disabled]="!formGroup.valid" >
+                        <ng-container *ngIf="this.id">Update</ng-container>
+                        <ng-container *ngIf="!this.id">Save</ng-container>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+       
+    

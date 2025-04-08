@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 col-md-4 col-xl-3">
+              <h4 class="card-title mb-0 flex-grow-1" style="font-weight: bold;font-size: 20px;">Permissions</h4>
+            </div>
+            <div class="col-12 col-md-8 col-xl-9">
+              <div class="row justify-content-end">
+                <!-- Additional filters can go here -->
+              </div>
+            </div>
+          </div>
+        </div><!-- end card header -->
+  
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <label class="d-block mb-2"><b>User Name</b></label>
+             <ng-select
+             [(ngModel)]="selectedUserId"
+                              [multiple]="false"
+                              placeholder="Select User Name"
+                              (change)="onUserChange($event.id)"
+                              bindLabel="firstName"
+                              bindValue="id"
+                              [items]="userList"
+                                [clearable]="true"
+                                (clear)="onUserClear()"
+                                class="custom-ng-select"
+                                [disabled]="true"
+                                
+                            >
+                            </ng-select>
+                            <!-- (change)="onStatusChange($event)"(clear)="onStatusClear()" [(ngModel)]="selectedStatus"   -->
+                  </div>
+            </div>
+            <hr>
+
+        
+          <div class="table-responsive">
+            <table class="table table-gridjs align-middle">
+              <thead>
+                <tr>
+                  <th>Entity</th>
+                  <th>
+                    <input type="checkbox" (change)="selectAllMethods('POST', $event)" [checked]="isAllSelected('POST')" class="checkbox-gap" />
+                 <span>
+                  Add
+                 </span>
+                  
+                  </th>
+                  <th>
+                    <input type="checkbox" (change)="selectAllMethods('PUT', $event)" [checked]="isAllSelected('PUT')" class="checkbox-gap" />
+                    Edit
+                  
+                  </th>
+                  <th>
+                    <input type="checkbox" (change)="selectAllMethods('DELETE', $event)" [checked]="isAllSelected('DELETE')" class="checkbox-gap" />
+                    Delete
+                 
+                  </th>
+                  <th>
+                    <input type="checkbox" (change)="selectAllMethods('GET', $event)" [checked]="isAllSelected('GET')" class="checkbox-gap" />
+                    View
+                  
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let entity of datalist">
+                  <td>{{ entity.name }}</td>
+                  <td>
+                    <input type="checkbox" (change)="toggleMethod(entity.id, 'POST', $event)" [checked]="checkPermission(entity, 'POST')" />
+                  </td>
+                  <td>
+                    <input type="checkbox" (change)="toggleMethod(entity.id, 'PUT', $event)" [checked]="checkPermission(entity, 'PUT')" />
+                  </td>
+                  <td>
+                    <input type="checkbox" (change)="toggleMethod(entity.id, 'DELETE', $event)" [checked]="checkPermission(entity, 'DELETE')" />
+                  </td>
+                  <td>
+                    <input type="checkbox" (change)="toggleMethod(entity.id, 'GET', $event)" [checked]="checkPermission(entity, 'GET')" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- <button (click)="sendData()">Submit</button> -->
+          <hr />
+          <div class="col-lg-12 mt-2">
+            <div class="hstack gap-2 justify-content-end">
+              <!-- <button
+                type="button"
+                class="btn btn-light btn-elevate mr-2"
+                (click)="modal.dismiss()">
+                Cancel
+              </button> -->
+              <button class="btn btn-primary"(click)="save()">
+                <ng-container *ngIf="this.id">Update</ng-container>
+                <ng-container *ngIf="!this.id">Save</ng-container>
+              </button>
+            </div>
+          </div>
+          <!-- <div class="row mt-2">
+            <div class="col-sm-4">
+              <div class="d-flex justify-content-between align-items-center m-1">
+                <div class="d-flex align-items-center">
+                  <label class="d-flex align-items-center">
+                    <span style="margin-right: 6px">Show </span>
+                    <select class="form-control form-select form-select mx-25" [(ngModel)]="itemsPerPage" (change)="itemsPerPageChange($event)">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8 mt-1">
+              <pagination-controls id="dataPagination" (pageChange)="pageNoChange($event); pageNo = $event"></pagination-controls>
+            </div>
+          </div> -->
+        </div><!-- end card-body -->
+      </div><!-- end card -->
+    </div><!-- end col -->
+  </div>

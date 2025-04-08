@@ -1,0 +1,243 @@
+<div class="modal-content">
+  <div class="modal-header p-3 bg-light">
+    <div class="col-6">
+      <h5 class="modal-title" id="myModalLabel" style="color: black">
+        <b>{{ id ? "Update Document" : "Add Document" }}</b>
+      </h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      (click)="modal.dismiss()"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formGroup">
+      <div class="row mb-3">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <label for="name" class="form-label">
+            <b>Document Name</b><span class="text-danger">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control form-control-solid"
+            name="name"
+            placeholder="Document Name"
+            autocomplete="off"
+            [class.is-invalid]="isControlInvalid('name')"
+            [class.is-valid]="isControlValid('name')"
+            formControlName="name"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="controlHasError('required', 'name')"
+          >
+            Name is required
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <label for="businessName" class="form-label">
+            <b>User Name</b><span class="text-danger">*</span>
+          </label>
+          <!-- <ng-select
+            placeholder="Select User"
+            [hideSelected]="true"
+            bindValue="id"
+            formControlName="SelecteduserId"
+            bindLabel="firstName"
+            [items]="userList">
+          </ng-select> -->
+          <ng-select
+            placeholder="Select User"
+            [hideSelected]="true"
+            bindValue="id"
+            formControlName="SelecteduserId"
+            [items]="userList"
+            [closeOnSelect]="true"
+            [searchFn]="customSearchFunction"
+          >
+            <ng-template ng-label-tmp let-item="item">
+              {{ item.firstName }} {{ item.lastName }} ({{ item.email }})
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+              <div>
+                <span>{{ item.firstName }} {{ item.lastName }}</span>
+                <br />
+                <small>{{ item.email }}</small>
+              </div>
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <!-- Blog Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">
+          <b>Description</b><span class="text-danger">*</span>
+        </label>
+        <textarea
+          class="form-control"
+          id="description"
+          placeholder="Enter description"
+          rows="4"
+          autocomplete="off"
+          formControlName="description"
+        ></textarea>
+        <div
+          class="invalid-feedback"
+          *ngIf="controlHasError('required', 'description')"
+        >
+          description is required.
+        </div>
+      </div>
+      <!-- <div class="row">
+        <label for="document" class="form-label">
+          <b>Upload Document</b><span class="text-danger">*</span>
+        </label>
+        <div class="col-4">
+          <ngx-dropzone
+            (change)="onSelect($event)"
+            accept=".pdf,.docx"
+            class="custom-dropzone"
+            style="height: 200px"
+          >
+            <ngx-dropzone-label>
+              <div>
+                <svg
+                width="40"
+                height="34"
+                viewBox="0 0 24 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.9771 5.14241C17.6461 5.0764 17.375 4.86937 17.235 4.57331C15.6847 1.30175 12.0911 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83853 17.9771 5.14241ZM15.1236 11.7056C14.9286 11.9006 14.6726 11.9986 14.4165 11.9986C14.1605 11.9986 13.9044 11.9006 13.7094 11.7056L12.0021 9.99826V14.9991C12.0021 15.5522 11.554 15.9993 11.0019 15.9993C10.4498 15.9993 10.0017 15.5522 10.0017 14.9991V9.99826L8.29444 11.7056C7.90338 12.0966 7.27127 12.0966 6.8802 11.7056C6.48913 11.3145 6.48913 10.6824 6.8802 10.2913L9.58767 7.58384C9.97374 7.19777 10.4808 7.00374 10.9879 7.00074L11.0019 6.99774L11.0159 7.00074C11.524 7.00374 12.0301 7.19777 12.4162 7.58384L15.1236 10.2913C15.5147 10.6824 15.5147 11.3145 15.1236 11.7056Z"
+                  fill="#D9D9D9"
+                />
+              </svg>
+              </div>
+            </ngx-dropzone-label>
+          </ngx-dropzone>
+        </div>
+      
+        <div class="col-8">
+          <ngx-dropzone
+            [disableClick]="true"
+            class="custom-dropzone"
+            style="height: 200px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;"
+          >
+            <ngx-dropzone-preview
+              *ngFor="let item of images; let i = index"
+              [removable]="true"
+              (removed)="onRemove(item)"
+              style="width: 120px; margin: 10px; text-align: center;"
+            >
+              <ngx-dropzone-label>
+                <div>
+                  <ng-container *ngIf="item.extension === 'pdf'; else otherFilePreview">
+                    <img
+                      src="../../../../assets/images/pdf.svg"
+                      alt="PDF Preview"
+                      style="width: 100%; height: auto; "
+                    />
+                  </ng-container>
+                  <ng-template #otherFilePreview>
+                    <img
+                      *ngIf="item.extension === 'docx'"
+                      src="../../../../assets/images/doc.svg"
+                      alt="DOCX Preview"
+                      style="width: 100%; height: auto;"
+                    />
+                  </ng-template>
+                </div>
+                <span style="font-size: 12px; word-wrap: break-word;">{{ item.file.name }}</span>
+              </ngx-dropzone-label>
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <label for="document" class="form-label">
+          <b>Upload Document</b><span class="text-danger">*</span>
+        </label>
+        <div class="col-4">
+          <ngx-dropzone
+            (change)="onSelect($event)"
+            accept=".pdf,.docx"
+            class="custom-dropzone"
+            style="height: 200px"
+          >
+            <ngx-dropzone-label>
+              <div>
+                <svg
+                  width="40"
+                  height="34"
+                  viewBox="0 0 24 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.9771 5.14241C17.6461 5.0764 17.375 4.86937 17.235 4.57331C15.6847 1.30175 12.0911 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83853 17.9771 5.14241ZM15.1236 11.7056C14.9286 11.9006 14.6726 11.9986 14.4165 11.9986C14.1605 11.9986 13.9044 11.9006 13.7094 11.7056L12.0021 9.99826V14.9991C12.0021 15.5522 11.554 15.9993 11.0019 15.9993C10.4498 15.9993 10.0017 15.5522 10.0017 14.9991V9.99826L8.29444 11.7056C7.90338 12.0966 7.27127 12.0966 6.8802 11.7056C6.48913 11.3145 6.48913 10.6824 6.8802 10.2913L9.58767 7.58384C9.97374 7.19777 10.4808 7.00374 10.9879 7.00074L11.0019 6.99774L11.0159 7.00074C11.524 7.00374 12.0301 7.19777 12.4162 7.58384L15.1236 10.2913C15.5147 10.6824 15.5147 11.3145 15.1236 11.7056Z"
+                    fill="#D9D9D9"
+                  />
+                </svg>
+              </div>
+            </ngx-dropzone-label>
+          </ngx-dropzone>
+        </div>
+
+        <div class="col-8">
+          <ngx-dropzone
+            [disableClick]="true"
+            class="custom-dropzone files-container"
+            style="height: 200px"
+          >
+            <ngx-dropzone-preview
+              *ngFor="let item of images"
+              [removable]="true"
+              (removed)="onRemove(item)"
+              class="file-preview"
+            >
+              <ngx-dropzone-label>
+                <div>
+                  <ng-container
+                    *ngIf="item.extension === 'pdf'; else otherFilePreview"
+                  >
+                    <img
+                      src="../../../../assets/images/pdf.svg"
+                      alt="PDF Preview"
+                    />
+                  </ng-container>
+                  <ng-template #otherFilePreview>
+                    <img
+                      *ngIf="item.extension === 'docx'"
+                      src="../../../../assets/images/doc.svg"
+                      alt="DOCX Preview"
+                    />
+                  </ng-template>
+                </div>
+                <span>{{ item.file.name }}</span>
+              </ngx-dropzone-label>
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </div>
+      </div>
+      <div class="col-lg-12 mt-2">
+        <div class="hstack gap-2 justify-content-end">
+          <button
+            type="button"
+            class="btn btn-light btn-elevate mr-2"
+            (click)="modal.dismiss()"
+          >
+            Cancel
+          </button>
+          <button class="btn btn-primary" (click)="save()">
+            <ng-container *ngIf="this.id">Update</ng-container>
+            <ng-container *ngIf="!this.id">Save</ng-container>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

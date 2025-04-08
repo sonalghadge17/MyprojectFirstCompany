@@ -1,0 +1,25 @@
+<div class="modal-content">
+    <div class="modal-header"></div>
+    <div class="modal-body" style="text-align:center;padding: 0%;">
+        <div class="row" style="text-align:center">
+            <i class="bx bx-info-circle" style="font-size: 58px;color: wheat;margin-bottom: 8px"></i>
+        </div>
+        <h4>Are You Sure?</h4>
+
+        <p>{{ type ? 'You Want to Clear Chat!' : 'You Want to Delete!' }}</p>
+    </div>
+    <div class="modal-footer" style="display: block;">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 " style="text-align:center">
+                <button type="button" class="btn btn-outline-success" (click)="modal.dismiss()">
+                    Cancel
+                </button>&nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 " style="text-align:center">
+                <button type="button" class="btn btn-outline-danger ms-2" (click)="modal.close()">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

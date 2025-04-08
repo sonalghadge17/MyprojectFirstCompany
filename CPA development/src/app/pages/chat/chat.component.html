@@ -1,0 +1,129 @@
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+               <h4>users List</h4>
+            </div>
+            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-end">
+                <button class="btn btn-primary" (click)="chatModel(undefined)"> Create Chat</button>
+            </div> -->
+          </div>
+    </div>
+    <div class="card-body">
+  
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group d-flex">
+                   
+                    <input style="margin-top: 25px;" type="search" class="form-control" placeholder="Search "
+                    aria-describedby="search-addon" (search)="searchEvent($event)" (keyup)="searchEvent($event)"
+                    [(ngModel)]="search" />
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xl-3 col-xs-3 mt-1">
+                <div class="form-group">
+                    <label class="mb-1" for="Category">Category:</label>
+                    <ng-select [items]="categoryList"  bindLabel="name" bindValue="id" (change)="changeEvent($event)"
+                        formControlName="categoryId" id="Category"  placeholder="Select category">
+                    </ng-select>
+                </div> 
+            </div> -->
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xl-3 col-xs-3 mt-1">
+                <div class="form-group">
+                    <label class="mb-1" for="subcategorie">Sub Category:</label>
+                    <ng-select  [items]="subCategoryList" bindLabel="subcategorie" bindValue="id" (change)="selectSubCategory($event)"
+                        formControlName="subCategoryId"  placeholder="Select Sub Category">
+                    </ng-select>
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xl-3 col-xs-3 mt-1">
+                <div class="form-group">
+                    <label class="mb-1">Assigned To:</label>
+                    <ng-select  [items]="employeeList" bindLabel="name" bindValue="id" (change)="selectEmployee($event)"
+                        formControlName="assignedToId"  placeholder="Select Assigned To">
+                    </ng-select>
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xl-3 col-xs-3 mt-1">
+                <div class="form-group">
+                    <label class="mb-1">Status:</label>
+                    <ng-select  [items]="statusList" bindLabel="name" bindValue="id" (change)="selectStatus($event)"
+                        formControlName="status"  placeholder="Select Status">
+                    </ng-select>
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-end">
+                <button style="margin-top: 25px;" class="btn btn-primary" (click)="Search()" > Search</button>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                <button style="margin-top: 25px;" class="btn btn-primary" > Reset</button>
+            </div> -->
+        </div>
+
+        <div class="row mt-3">
+            <div class="table-responsive angular-bootstrap-table">
+                <table class="table table-head-custom text-left overflow-hidden">
+                  <thead class="table-light">
+                        <tr>
+                          <th scope="col">Sr.No</th>
+                          <th scope="col">UserName</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Mobile Number</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of UserList | paginate: { id: 'dataPagination',
+                        itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: listLength} ; let i=index;">
+                        <td style="padding-left: 25px;">{{(pageNo*itemsPerPage-itemsPerPage)+(i+1)}}</td>
+                        <td style=" overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.userName}}</td>
+                        <td style=" overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.email}}</td>
+                        <td style=" overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.mobileNo}}</td> 
+                        <td><span class="badge bg-success-subtle text-success" [ngClass]=" {
+                            'bg-warning-subtle text-success': item.status === 'ACTIVE', 'bg-danger-subtle text-danger': item.status === 'BLOCKED'}">{{item.status}}</span></td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <div class="chat">
+                                    <a class="dropdown-item grab text-center" ngbDropdownItem routerLinkActive="router-link-active" (click)="chatModel(item,item.usersId)" ><i class="ri-chat-3-fill align-middle text-primary fs-16"></i></a>
+                                </div>
+                                <div class="edit">
+                                    <a class="dropdown-item grab text-center" ngbDropdownItem routerLinkActive="router-link-active" (click)="deleteAction(item.id)" ><i class="ri-delete-bin-5-line align-middle text-danger fs-16" ></i></a>
+                                </div>
+                            </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="d-flex justify-content-between align-items-center m-1">
+                    <div class="d-flex align-items-center">
+                        <label class="d-flex align-items-center"><span style="margin-right: 6px">Show </span>
+                            <select class="form-control mx-25" [(ngModel)]="itemsPerPage"
+                                (change)="itemsPerPageChange($event)">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 mt-1">
+                <pagination-controls id="dataPagination" (pageChange)="pageNoChange($event);pageNo = $event">
+                </pagination-controls>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+
+
+

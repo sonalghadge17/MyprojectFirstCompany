@@ -1,0 +1,125 @@
+<div class="card card-custom gutter-b mt">
+  <div class="card-header">
+    <div class="modal-header">
+      <div>
+        <h3><b>Customer Details</b></h3>
+      </div>
+      <div class="col-4 text-end">
+        <!-- <button class="btn btn-primary mx-1" type="button" (click)="exportexcel()">Export
+          Excel</button> -->
+        <button
+          type="button"
+          (click)="Add_User(undefined)"
+          class="btn btn-primary waves-effect waves-light" >
+          +Add User
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body" style="min-height: 200px">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="search-box">
+          <input
+          type="search"
+          class="form-control"
+          placeholder="Search...."
+          aria-describedby="search-addon"
+          style="font-size: 14px"
+          [(ngModel)]="requestBody.searchTerm"
+          [ngModelOptions]="{ standalone: true }"
+          (keyup)="searchevent($event)"
+        />
+          <i class="ri-search-line search-icon"></i>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="table-responsive angular-bootstrap-table" *ngIf="datalist && datalist.length > 0; else noResult">
+      <table class="table table-head-custom text-left overflow-hidden">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datalist | paginate: { id: 'dataPagination',
+                        itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: listLength} ; let i=index;">
+            <td>{{ pageNo * itemsPerPage - itemsPerPage + (i + 1) }}</td>
+            <td>{{ item.firstName }}</td>
+            <td>{{ item.lastName }}</td>
+            <td>
+              <a [href]="getEmailLink(item.email)" target="_blank">{{ item.email }}</a>
+            </td>
+            <!-- <td>
+              <a [href]="'mailto:' + item.email" target="_blank">{{ item.email }}</a>
+            </td> -->
+            <td>{{ item.mobileNo }}</td>
+            <td>
+              <div class="form-check form-switch form-switch-lg">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [checked]="item.status === 'ACTIVE'"
+                  name="BlockUser{{i}}"
+                  (change)="toggleUserStatus(item)" />
+              </div>
+            </td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-success btn-sm btn-icon waves-effect waves-light"
+                style="margin-right: 5px"
+                (click)="edit(item.id)">
+                <i class="bx bx-pencil"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger btn-sm btn-icon waves-effect waves-light mr-5"
+                (click)="delete(item.id)">
+                <i class="ri-delete-bin-5-line"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noResult>
+      <div class="text-center">
+        <p>No result found</p>
+      </div>
+    </ng-template>
+    <div class="row mt-2">
+      <div class="col-sm-4">
+        <div class="d-flex justify-content-between align-items-center m-1">
+          <div class="d-flex align-items-center">
+            <label class="d-flex align-items-center">
+              <span style="margin-right: 6px">Show </span>
+              <select
+                class="form-control form-select form-select mx-25"
+                [(ngModel)]="itemsPerPage"
+                (change)="itemsPerPageChange($event)">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 mt-1">
+        <pagination-controls
+          id="dataPagination"
+          (pageChange)="pageNoChange($event); pageNo = $event">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="modal-content">
+    <div class="card">
+        <div class="card-body">
+          <div class="modal-body">
+        <form [formGroup]="formGroup2">
+        <div class="mb-3">
+            <label class="form-label"><b>Privacy policy</b></label>
+            <ckeditor [editor]="Editor" formControlName="privacyPolicy" [config]="editorConfig"></ckeditor>
+           
+        </div>
+        </form>
+        <div class="row">
+            <div class="d-flex gap-1 justify-content-end">
+                <button type="submit" class="btn btn-primary" (click)="saveprivacypolicy()">Save</button>
+            </div>
+        </div>
+          </div>
+        </div>
+    </div>
+</div>
+

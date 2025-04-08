@@ -1,0 +1,355 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="modal-header">
+      <div>
+        <h3><b>Document</b></h3>
+      </div>
+      <div class="col-4 text-end">
+        <!-- <button class="btn btn-primary mx-1" type="button" (click)="exportexcel()">Export
+        Excel</button> -->
+        <button
+          type="button"
+          (click)="add_Document(undefined)"
+          class="btn btn-primary waves-effect waves-light"
+        >
+          Add Document
+        </button>
+      </div>
+    </div>
+    <hr />
+    <div class="card-body" style="min-height: 200px">
+      <div class="form-group row">
+        <div class="col-lg-3">
+          <label class="d-block mb-2"><b>Search</b></label>
+          <div class="search-box d-flex align-items-center">
+            <input
+              style="font-size: 14px"
+              type="search"
+              class="form-control"
+              placeholder="Search"
+              aria-describedby="search-addon"
+              (search)="searchevent($event)"
+              (keyup)="searchevent($event)"
+              [(ngModel)]="search"
+            />
+            <i class="ri-search-line search-icon"></i>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-3">
+      <label class="d-block mb-2"><b>From Date</b></label>
+      <div class="input-group">
+        <input
+          [(ngModel)]="requestB.date"
+          [ngModelOptions]="{ standalone: true }"
+       
+          ngbDatepicker
+          class="form-control"
+          placeholder="dd-MM-yyyy"
+          #dto="ngbDatepicker"
+        />
+        <div class="input-group-append" (click)="dto.toggle()">
+          <span class="input-group-text">
+            <i class="mdi mdi-calendar"></i>
+          </span>
+        </div>
+      </div>
+    </div> -->
+      </div>
+
+      <hr />
+      <div class="col-lg-12">
+        <div>
+          <div class="d-flex">
+            <!-- Nav tabs -->
+            <ul
+              ngbNav
+              #customNav="ngbNav"
+              [activeId]="1"
+              class="nav nav-pills gap-2 gap-lg-3 flex-grow-1"
+              role="tablist" (navChange)="onNavChange($event)"
+            >
+              <!-- Upload Documents Tab -->
+              <li [ngbNavItem]="1" class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                  <span class="d-none d-md-inline-block">Upload Documents</span>
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- <h5><b>Upload Documents</b></h5> -->
+                      <!-- Upload Documents Content -->
+                      <div class="table-responsive">
+                        <div *ngIf="datalist && datalist.length > 0; else noResult">
+                          <table class="table table-borderless align-middle">
+                            <thead class="table-light">
+                              <tr>
+                                <th scope="col">Sr.No</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Upload Date</th>
+                                <th scope="col">Document Name</th>
+                                <th scope="col">Document Type</th>
+                                <th scope="col">View Document</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr
+                                *ngFor="
+                                  let data of datalist | paginate: { id: 'dataPagination', itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: listLength };
+                                  let i = index
+                                ">
+                                <td>{{ (pageNo * itemsPerPage - itemsPerPage) + (i + 1) }}</td>
+                                <td>{{ data.userName }}</td>
+                                <td>{{ data.uploadedDate }}</td>
+                                <td>{{ data.name }}</td>
+                                <td>
+                                  <span *ngFor="let doc of data.userDocumentResponses; let last = last">
+                                    <ng-container *ngIf="doc.fileExtention === 'pdf'">
+                                      <i class="fa fa-file-pdf"></i> PDF
+                                    </ng-container>
+                                    <ng-container *ngIf="doc.fileExtention === 'docx'">
+                                      <i class="fa fa-file-word"></i> Word Document
+                                    </ng-container>
+                                    <span *ngIf="!last">, </span>
+                                  </span>
+                                </td>
+                                <td>
+                                  <button class="btn btn-primary" type="button" (click)="View_Document(data)">
+                                    View
+                                  </button>
+                                </td>
+                                <td class="overflow-hidden text-left">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success btn-sm btn-icon waves-effect waves-light"
+                                    style="margin-right: 5px"
+                                    (click)="edit(data.id)">
+                                    <i class="bx bx-pencil"></i>
+                                  </button>
+                                  <button
+                                    type="button"
+                                    class="btn btn-danger btn-sm btn-icon waves-effect waves-light mr-5"
+                                    (click)="delete(data.id)">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                        <!-- Fallback message for empty list -->
+                        <ng-template #noResult>
+                          <div class="text-center">
+                            <p>No result found</p>
+                          </div>
+                        </ng-template>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-sm-4">
+                          <div
+                            class="d-flex justify-content-between align-items-center m-1">
+                            <div class="d-flex align-items-center">
+                              <label class="d-flex align-items-center">
+                                <span style="margin-right: 6px">Show </span>
+                                <select
+                                  class="form-control form-select form-select mx-25"
+                                  [(ngModel)]="itemsPerPage"
+                                  (change)="itemsPerPageChange($event)"
+                                >
+                                  <option value="10">10</option>
+                                  <option value="25">25</option>
+                                  <option value="50">50</option>
+                                  <option value="100">100</option>
+                                </select>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8 mt-1">
+                          <pagination-controls
+                            id="dataPagination"
+                            (pageChange)="pageNoChange($event); pageNo = $event"
+                          >
+                          </pagination-controls>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+
+              <li [ngbNavItem]="2" class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                  <span class="d-none d-md-inline-block"
+                    >Received Documents</span
+                  >
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- <h5><b>Received Documents</b></h5> -->
+                      <!-- Received Documents Content -->
+                      <div class="table-responsive">
+                        <div *ngIf="Recieveddatalist && Recieveddatalist.length > 0; else noResult1">
+                        <table class="table table-borderless align-middle">
+                          <thead class="table-light">
+                            <tr>
+                              <th scope="col">Sr.No</th>
+                              <th scope="col">User Name</th>
+                              <th scope="col">Upload Date</th>
+                              <th scope="col">Document Name</th>
+                              <th scope="col">Document Type</th>
+                              <th scope="col">View Document</th>
+                              <!-- <th scope="col">Action</th> -->
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr *ngFor=" let item of Recieveddatalist  | paginate: { id: 'dataPagination',itemsPerPage: itemsPerPage1, currentPage: pageNo1, totalItems: listLength1} ; let i=index;">
+                              <td  >{{ (pageNo1* itemsPerPage - itemsPerPage) + (i + 1) }}</td>
+                              <td>{{ item.userName }}</td>
+                              <td>{{ item.uploadedDate }}</td>
+                              <td>{{ item.name }}</td>
+                              <!--                                 
+                                <td>
+                                  <span *ngFor="let doc of data.userDocumentResponses">{{ doc.name }}</span>
+                                </td> -->
+                              <td>
+                                <span
+                                  *ngFor="
+                                    let doc of item.userDocumentResponses;
+                                    let last = last">
+                                  <ng-container
+                                    *ngIf="doc.fileExtention === 'pdf'"
+                                  >
+                                    <i class="fa fa-file-pdf"></i> PDF
+                                  </ng-container>
+                                  <ng-container
+                                    *ngIf="doc.fileExtention === 'docx'"
+                                  >
+                                    <i class="fa fa-file-word"></i> Word
+                                    Document
+                                  </ng-container>
+                                  <span *ngIf="!last">, </span>
+                                </span>
+                              </td>
+                              <!-- <td class="justify-content-center">
+                                <ng-container
+                                  *ngIf="data.userDocumentResponses"
+                                >
+                                  <ng-container
+                                    *ngFor="
+                                      let doc of data.userDocumentResponses
+                                    "
+                                  >
+                                 
+                                    <ng-container
+                                      *ngIf="isDocumentFile(doc.fileExtention)"
+                                    >
+                                      <div>
+                                        
+                                        <a [href]="doc.url" target="_blank">
+                                          <button class="btn btn-light btn-sm">
+                                            <i
+                                              class="ri-download-2-fill me-2"
+                                            ></i
+                                            >Download
+                                            {{ doc.fileExtention | uppercase }}
+                                          </button>
+                                        </a>
+                                      </div>
+                                    </ng-container>
+                                  </ng-container>
+                                </ng-container>
+                              </td> -->
+
+                              <td>
+                                <div [attr.inert]="isModalOpen ? true : null">
+                                  <!-- Non-modal content -->
+                                  <button
+                                  class="btn btn-primary"
+                                  type="button"
+                                  (click)="View_Document(item)">
+                                  View
+                                </button>
+                                </div>
+                              </td>
+                              <!-- <td class="overflow-hidden text-left">
+                                <button
+                                  type="button"
+                                  class="btn btn-success btn-sm btn-icon waves-effect waves-light"
+                                  style="margin-right: 5px"
+                                  (click)="edit(data.id)"
+                                >
+                                  <i class="bx bx-pencil"></i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-danger btn-sm btn-icon waves-effect waves-light mr-5"
+                                  (click)="delete(data.id)"
+                                >
+                                  <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                              </td> -->
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- Fallback message for empty list -->
+                      <ng-template #noResult1>
+                        <div class="text-center">
+                          <p>No result found</p>
+                        </div>
+                      </ng-template>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-sm-4">
+                          <div
+                            class="d-flex justify-content-between align-items-center m-1"
+                          >
+                            <div class="d-flex align-items-center">
+                              <label class="d-flex align-items-center">
+                                <span style="margin-right: 6px">Show </span>
+                                <select
+                                  class="form-control form-select form-select mx-25"
+                                  [(ngModel)]="itemsPerPage"
+                                  (change)="itemsPerPageChange1($event)"
+                                >
+                                  <option value="10">10</option>
+                                  <option value="25">25</option>
+                                  <option value="50">50</option>
+                                  <option value="100">100</option>
+                                </select>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8 mt-1">
+                          <pagination-controls
+                            id="dataPagination"
+                            (pageChange)="
+                              pageNoChange1($event); pageNo1 = $event
+                            "
+                          >
+                          </pagination-controls>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content pt-4 text-muted">
+            <div [ngbNavOutlet]="customNav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

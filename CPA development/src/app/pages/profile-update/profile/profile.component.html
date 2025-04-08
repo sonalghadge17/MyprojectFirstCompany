@@ -1,0 +1,298 @@
+<div class="profile-foreground position-relative mx-n4 mt-n4">
+    <div class="profile-wid-bg">
+      <img
+        src="../../../../assets/images/users/user-dummy-img.jpg"
+        alt=""
+        class="profile-wid-img"/>
+    </div>
+  </div>
+  <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
+    <div class="row g-4">
+      <!-- <div class="col-auto">
+              <div class="avatar-lg">
+                  <img src="{{profilePic}}" alt="user-img" class="img-thumbnail rounded-circle" />
+              </div>
+          </div> -->
+      <!--end col-->
+      <div class="col">
+        <div class="p-2">
+          <!-- <h3 class="text-white mb-1">{{ profile.name }}</h3> -->
+          <!-- <p class="text-white-75">Owner & Founder</p> -->
+          <div class="hstack text-white-50 gap-1">
+            <!-- <div class="me-2">
+              <i
+                class="ri-map-pin-user-line me-1 text-white-75 fs-16 align-middle"
+              ></i>
+              {{ changePassword.address }}
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!--end col-->
+      <div class="col-12 col-lg-auto order-last order-lg-0">
+        <div class="row text text-white-50 text-center"></div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div>
+        <div class="d-flex">
+          <!-- Nav tabs -->
+          <ul
+            ngbNav
+            #customNav="ngbNav"
+            [activeId]="1"
+            class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+            role="tablist">
+            <li [ngbNavItem]="1" class="nav-item">
+              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                <span class="d-none d-md-inline-block">Overview</span>
+              </a>
+              <ng-template ngbNavContent>
+                <div class="row">
+                  <div class="col-xxl-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title mb-3">Info</h5>
+                        <div class="table-responsive">
+                          <table class="table table-borderless mb-0">
+                            <tbody>
+                              <tr>
+                                <div
+                                  class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row">
+                                  <div
+                                    class="col-xxl-2 col-xl-2 col-lg-2 col-md-5 col-sm-5 col-5 mb-3">
+                                    <b style="color: black">Full Name :</b>
+                                  </div>
+                                  <div
+                                    class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7 col-7 mb-3">
+                                    {{
+                                      this.changePassword.firstName === null || this.changePassword.firstName === "" || this.changePassword.firstName === undefined ? "-": this.changePassword.firstName
+                                    }} {{
+                                     this.changePassword.firstName === null || this.changePassword.firstName === "" || this.changePassword.firstName === undefined ? "-"
+                                        : this.changePassword.lastName
+                                    }}
+                                  </div>
+                                </div>
+                              </tr>
+                              <tr>
+                                <div
+                                  class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row">
+                                  <div
+                                    class="col-xxl-2 col-xl-2 col-lg-2 col-md-5 col-sm-5 col-5 mb-3">
+                                    <b style="color: black">Mobile Number :</b>
+                                  </div>
+                                  <div
+                                    class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7 col-7 mb-3">
+                                    {{
+                                      this.changePassword.mobileNo == null ||
+                                      "" ||
+                                      undefined
+                                        ? "-"
+                                        : this.changePassword.mobileNo
+                                    }}
+                                  </div>
+                                </div>
+                              </tr>
+                              <tr>
+                                <div
+                                  class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row">
+                                  <div
+                                    class="col-xxl-2 col-xl-2 col-lg-2 col-md-5 col-sm-5 col-5 mb-3">
+                                    <b style="color: black">E-mail :</b>
+                                  </div>
+                                  <div
+                                    class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7 col-7 mb-3">
+                                    {{
+                                      this.changePassword.email == null ||
+                                      "" ||
+                                      undefined
+                                        ? "-"
+                                        : this.changePassword.email
+                                    }}
+                                  </div>
+                                </div>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- end card body -->
+                    </div>
+                    <!-- end card -->
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2" class="nav-item">
+              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                <span class="d-none d-md-inline-block">Change Password</span>
+              </a>
+              <ng-template ngbNavContent>
+                <div class="row">
+                  <div class="col-xxl-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Change Password</h5>
+                        <hr />
+                        <form [formGroup]="formGrouptt">
+                          <div class="row">
+                            <div class="col-md-4 mt-1">
+                              <label for="password" class="form-label"
+                                ><b>Old Password</b
+                                ><span class="text-danger">*</span></label>
+                              <div class="input-group auth-pass-inputgroup">
+                                <input
+                                  [type]="
+                                    passwordoldTextType ? 'text' : 'password'
+                                  "
+                                  class="form-control"
+                                  placeholder="Enter password"
+                                  formControlName="oldPassword"
+                                  [class.is-invalid]="
+                                    isControlInvalid('oldPassword')
+                                  "
+                                  aria-label="Password"
+                                  aria-describedby="password-addon"/>
+                                <button
+                                  (click)="toggleOldPasswordTextType()"
+                                  class="btn btn-danger ms-0"
+                                  type="button"
+                                  id="password-addon">
+                                  <i
+                                    class="mdi mdi-eye-outline"
+                                    [ngClass]="{
+                                      'mdi-eye-off': passwordoldTextType,
+                                      'mdi-eye-outline': !passwordoldTextType
+                                    }"></i>
+                                </button>
+                                <div
+                                  class="invalid-feedback"
+                                  *ngIf=" controlHasError('required', 'oldPassword')">
+                                  Old Password is required
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4 mt-1">
+                              <label for="password" class="form-label"
+                                ><b>New Password</b>
+                                <span class="text-danger">*</span></label>
+                              <div class="input-group auth-pass-inputgroup">
+                                <input
+                                  [type]="passwordTextType ? 'text' : 'password'"
+                                  class="form-control"
+                                  formControlName="newPassword"
+                                  placeholder="Enter password"
+                                  [class.is-invalid]="
+                                    isControlInvalid('newPassword')
+                                  "aria-label="Password"
+                                  aria-describedby="password-addon"/>
+                                <button
+                                  (click)="togglePasswordTextType()"
+                                  class="btn btn-danger ms-0"
+                                  type="button"
+                                  id="password-addon">
+                                  <i class="mdi mdi-eye-outline"
+                                    [ngClass]="{
+                                      'mdi-eye-off': passwordTextType,
+                                      'mdi-eye-outline': !passwordTextType
+                                    }"></i>
+                                </button>
+                                <div class="invalid-feedback"
+                                  *ngIf="
+                                    controlHasError('required', 'newPassword')">
+                                  New Password is required
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4 mt-1">
+                              <label for="password" class="form-label"
+                                ><b>Confirm Password</b><span class="text-danger">*</span></label>
+                              <div class="input-group auth-pass-inputgroup">
+                                <input
+                                  [type]="
+                                    passwordConfirmTextType ? 'text' : 'password'"
+                                  class="form-control"
+                                  formControlName="cPassword"
+                                  placeholder="Enter password"
+                                  [class.is-invalid]="
+                                    isControlInvalid('cPassword')
+                                  "
+                                  autocomplete="off"
+                                  aria-label="Password"
+                                  aria-describedby="password-addon"/>
+                                <button
+                                  (click)="toggleConfirmPasswordTextType()"
+                                  class="btn btn-danger ms-0"
+                                  type="button"
+                                  id="password-addon"
+                                >
+                                  <i
+                                    class="mdi mdi-eye-outline"
+                                    [ngClass]="{
+                                      'mdi-eye-off': passwordConfirmTextType,
+                                      'mdi-eye-outline': !passwordConfirmTextType
+                                    }"
+                                  ></i>
+                                </button>
+                                <div
+                                  class="invalid-feedback"
+                                  *ngIf="controlHasError('required', 'cPassword')"
+                                >
+                                  Confirm Password is required
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row mt-4">
+                            <div class="hstack gap-2 justify-content-end">
+                              <button
+                                class="btn btn-light btn-elevate mr-2"
+                                routerLink=""
+                                type="button">
+                                Cancel
+                              </button>
+                              <button
+                              [disabled]="!formGrouptt.valid"
+                                class="btn btn-primary btn-elevate"
+                                type="button"
+                                (click)="savePassword()">
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+          </ul>
+          <div class="flex-shrink-0">
+            <!-- <ng-container *ngIf="currentUser.type == 'ADMIN'">
+                          <a routerLink="/pages/profile-setting" class="btn btn-success"><i
+                                  class="ri-edit-box-line align-bottom"></i>
+                              Edit Profile</a>
+                      </ng-container> -->
+            <a routerLink="/ProfileUpdate/changepassword" class="btn btn-success"
+              ><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a
+            >
+          </div>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content pt-4 text-muted">
+          <div [ngbNavOutlet]="customNav"></div>
+        </div>
+        <!--end tab-content-->
+      </div>
+    </div>
+    <!--end col-->
+  </div>
+  <!--end row-->
+  

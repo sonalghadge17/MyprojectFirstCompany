@@ -1,0 +1,127 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="modal-header">
+        <div>
+          <h3><b>Applied Jobs</b></h3>
+        </div>
+        <div class="col-4 text-end">
+        <!-- <button class="btn btn-primary mx-1" type="button" (click)="exportexcel()">Export
+          Excel</button> -->
+          <!-- <button
+            type="button"
+            (click)="add_Jobs(undefined)"
+            class="btn btn-primary waves-effect waves-light">Add Jobs
+          </button> -->
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="min-height: 200px">
+      <div class="form-group row">
+     <div class="col-lg-3 mb-3">
+          <!-- <label class="d-block mb-2"><b>Search</b></label> -->
+          <div class="search-box d-flex align-items-center">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search...."
+              aria-describedby="search-addon"
+              style="font-size: 14px"
+              [(ngModel)]="search"
+              [ngModelOptions]="{ standalone: true }"
+              (keyup)="searchevent($event)"
+            />
+            <i class="ri-search-line search-icon ml-2"></i>
+          </div>
+        </div> 
+      </div>
+    
+      <!-- <hr /> -->
+      <div class="table-responsive angular-bootstrap-table" *ngIf="datalist && datalist.length > 0; else noResult1">
+        <table class="table table-head-custom text-left overflow-hidden">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Sr.No</th>
+              <th scope="col"> Name</th>
+              <th scope="col">Designation</th>  
+              <th scope="col">Contact No.</th>
+              <th scope="col">Email Id</th>
+              <th scope="col" style="word-wrap: break-word;" width="40%">Description</th>
+              <th scope="col">Resume</th>
+              <!-- <th scope="col">Status</th> -->
+              <!-- <th scope="col">Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor=" let item of datalist  | paginate: { id: 'dataPagination',itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: listLength} ; let i=index;">
+                <td>{{ (pageNo * itemsPerPage - itemsPerPage) + (i + 1) }}</td>
+              <td>{{ item.name  }}</td>
+              <td>{{ item.designation? item.designation:'-' }}</td>
+              <td>{{ item.contactNo}}</td>
+              <td>{{ item.email}}</td>
+              <td>{{ item.description?item.description:'-'}}</td>
+<td>
+  <button class="btn btn-primary btn-sm"  (click)="downloadFile(item.id)">
+    <svg style="cursor: pointer;" width="21" height="12" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.9781 5.14241C17.6461 5.0764 17.375 4.86937 17.236 4.57331C15.6837 1.30175 12.0921 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83953 17.9771 5.14341L17.9781 5.14241ZM15.1246 12.7057L12.4172 15.4132C12.0301 15.8003 11.521 15.9953 11.0119 15.9973L11.0029 15.9993L10.9939 15.9973C10.4848 15.9953 9.97574 15.8003 9.58867 15.4132L6.8812 12.7057C6.49013 12.3147 6.49013 11.6826 6.8812 11.2915C7.27227 10.9004 7.90438 10.9004 8.29544 11.2915L10.0027 12.9988V7.99791C10.0027 7.44481 10.4508 6.99774 11.0029 6.99774C11.555 6.99774 12.0031 7.44481 12.0031 7.99791V12.9988L13.7104 11.2915C14.1015 10.9004 14.7336 10.9004 15.1246 11.2915C15.5157 11.6826 15.5157 12.3147 15.1246 12.7057Z" fill="#ffffff"/>
+    </svg>
+    <span>Download</span>
+</button>
+</td>
+              <!-- <td>document
+                <label class="switch">
+                  <input type="checkbox" [checked]="item.status === 'ACTIVE'" (change)="toggleStatus(item.id, item.status)">
+                  <span class="slider round"></span>
+                </label>
+              </td> -->
+            <!-- <td class="overflow-hidden text-left">
+              <button
+                type="button"
+                class="btn btn-success btn-sm btn-icon waves-effect waves-light"
+                style="margin-right: 5px"
+                (click)="edit(item.id)">
+                <i class="bx bx-pencil"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger btn-sm btn-icon waves-effect waves-light mr-5"
+                (click)="delete(item.id)">
+                <i class="ri-delete-bin-5-line"></i>
+              </button>
+            </td> -->
+            </tr>
+          </tbody> 
+        </table>
+      </div>
+      <ng-template #noResult1>
+        <div class="text-center">
+          <p>No result found</p>
+        </div>
+      </ng-template>
+       <div class="row mt-2">
+        <div class="col-sm-4">
+          <div class="d-flex justify-content-between align-items-center m-1">
+            <div class="d-flex align-items-center">
+              <label class="d-flex align-items-center">
+                <span style="margin-right: 6px">Show </span>
+                <select
+                  class="form-control form-select form-select mx-25"
+                  [(ngModel)]="itemsPerPage"
+                  (change)="itemsPerPageChange($event)">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8 mt-1">
+          <pagination-controls
+            id="dataPagination"
+            (pageChange)="pageNoChange($event); pageNo = $event">
+          </pagination-controls>
+        </div>
+      </div> 
+    </div>
+    

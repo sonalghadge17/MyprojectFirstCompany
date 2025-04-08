@@ -1,0 +1,205 @@
+<div class="modal-content">
+    <div class="modal-header p-3 bg-light">
+      <div class="col-6">
+        <h5 class="modal-title" id="myModalLabel" style="color: black">
+          <b>{{ id ? "Update WhitePaper" : "Add WhitePaper" }}</b>
+        </h5>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="modal.dismiss()"
+        aria-label="Close"
+      ></button>
+    </div>
+    <hr class="m-0" />
+    <div class="modal-body">
+              <form [formGroup]="formGroup">
+                <!-- Blog Name -->
+                <div class="mb-3">
+                  <label for="label" class="form-label">
+                    <b>White Paper Name</b><span class="text-danger">*</span></label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="label"
+                    placeholder=" Enter label"
+                    [class.is-invalid]="isControlInvalid('label')"
+                    formControlName="label"/>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'label')">
+                    label is required.
+                  </div>
+                </div>
+    
+                <!-- Blog Description -->
+                <div class="mb-3">
+                  <label for="description" class="form-label">
+                    <b>Description</b><span class="text-danger">*</span>
+                  </label>
+                  <ckeditor [editor]="Editor" formControlName="description"></ckeditor>
+                  <div *ngIf="formGroup.get('description')?.hasError('maxLengthExceeded')">
+                    <small class="text-danger">Content exceeds the maximum length.</small>
+                  </div>
+                </div>
+    
+  
+               
+                <div class="row">
+                  <label for="document" class="form-label">
+                    <b>Upload Document</b><span class="text-danger">*</span>
+                  </label>
+                  <div class="col-4">
+                    <ngx-dropzone
+                      [multiple]="false"
+                      (change)="onSelect($event)"
+                      accept=".pdf,.docx"
+                      class="custom-dropzone"
+                      style="height: 200px"
+                    >
+                      <ngx-dropzone-label>
+                        <div>
+                          <svg
+                          width="40"
+                          height="34"
+                          viewBox="0 0 24 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M17.9771 5.14241C17.6461 5.0764 17.375 4.86937 17.235 4.57331C15.6847 1.30175 12.0911 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83853 17.9771 5.14241ZM15.1236 11.7056C14.9286 11.9006 14.6726 11.9986 14.4165 11.9986C14.1605 11.9986 13.9044 11.9006 13.7094 11.7056L12.0021 9.99826V14.9991C12.0021 15.5522 11.554 15.9993 11.0019 15.9993C10.4498 15.9993 10.0017 15.5522 10.0017 14.9991V9.99826L8.29444 11.7056C7.90338 12.0966 7.27127 12.0966 6.8802 11.7056C6.48913 11.3145 6.48913 10.6824 6.8802 10.2913L9.58767 7.58384C9.97374 7.19777 10.4808 7.00374 10.9879 7.00074L11.0019 6.99774L11.0159 7.00074C11.524 7.00374 12.0301 7.19777 12.4162 7.58384L15.1236 10.2913C15.5147 10.6824 15.5147 11.3145 15.1236 11.7056Z"
+                            fill="#D9D9D9"
+                          />
+                        </svg>
+                        </div>
+                      </ngx-dropzone-label>
+                    </ngx-dropzone>
+                  </div>
+                
+                  <div class="col-8">
+                    <ngx-dropzone [disableClick]="true" class="custom-dropzone files-container"   style="height: 200px">
+                      <ngx-dropzone-preview
+                        *ngFor="let item of images"
+                        [removable]="true"
+                        (removed)="onRemove(item)"
+                        class="file-preview"
+                      >
+                        <ngx-dropzone-label>
+                          <div>
+                            <ng-container *ngIf="item.extension === 'pdf'; else otherFilePreview">
+                              <img
+                                src="../../../../assets/images/pdf.svg"
+                                alt="PDF Preview"
+                              />
+                            </ng-container>
+                            <ng-template #otherFilePreview>
+                              <img
+                                *ngIf="item.extension === 'docx'"
+                                src="../../../../assets/images/doc.svg"
+                                alt="DOCX Preview"
+                              />
+                            </ng-template>
+                          </div>
+                          <span>{{ item.file.name }}</span>
+                        </ngx-dropzone-label>
+                      </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                  </div>
+                </div>
+                
+                
+  
+  <br>
+  <br>
+              <div class="mb-3">
+                <label for="document" class="form-label">
+                  <b>White Paper Image</b><span class="text-danger">*</span>
+                </label><br />
+                <input
+                  type="file"
+                  (change)="fileChangeListener($event)"
+                  accept=".jpeg, .jpg, .png"
+                />
+              </div>
+              <br />
+              <span class="symbol symbol-100 ml-5 mr-5" *ngIf="imgurl">
+                <img
+                  class="symbol-lebel"
+                  [src]="imgurl"
+                  height="80"
+                  width="100"
+                />
+              </span>
+  
+              <!-- Image Cropper -->
+              <div class="backdrop" [ngStyle]="{ display: display }"></div>
+              <div
+                class="modal"
+                tabindex="-1"
+                role="dialog"
+                [ngStyle]="{ display: display }"
+                style="overflow-y: visible">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"
+                    style="border: 2px solid #ccc; border-radius: 6px">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Image Cropper</h4>
+                      <button
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                        (click)="onCloseHandled()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <image-cropper
+                        [imageChangedEvent]="imgChangeEvt"
+                        [aspectRatio]="9 / 9"
+                        [maintainAspectRatio]="true"
+                        format="png"
+                        (imageCropped)="cropImg($event)">
+                      </image-cropper>
+                      <span *ngIf="cropImgPreview">
+                        <h6 class="mt-5 mb-5 text-center">Image Preview</h6>
+                        <img [src]="cropImgPreview" height="100" width="200" />
+                        &nbsp;&nbsp;
+                      </span>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="SaveCropedImage()">
+                        Save
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="onCloseHandled()">
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- Form Actions -->
+                <div class="col-lg-12 mt-2">
+                  <div class="hstack gap-2 justify-content-end">
+                    <button
+                      type="button"
+                      class="btn btn-light btn-elevate mr-2"
+                      (click)="modal.dismiss()">
+                      Cancel
+                    </button>
+                    <button class="btn btn-primary" (click)="save()" [disabled]="formGroup.invalid || !imgurl">
+                      <ng-container *ngIf="this.id">Update</ng-container>
+                      <ng-container *ngIf="!this.id">Save</ng-container>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+       

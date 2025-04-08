@@ -1,0 +1,129 @@
+<div class="modal-content">
+    <div class="modal-header p-3 bg-light">
+      <div class="col-6">
+        <h5 class="modal-title" id="myModalLabel" style="color: black">
+          <b>{{ id ? "Update Testimonial" : "Add Testimonial" }}</b>
+        </h5>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="modal.dismiss()"
+        aria-label="Close"
+      ></button>
+    </div>
+      
+          
+          <!-- Form Section -->
+          <div class="modal-body">
+              <div class="p-2">
+                <form [formGroup]="formGroup">
+                  <div class="row mb-3">
+                  
+                  
+                    <!-- Business Name and Email section -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="row">
+                        <!-- Business Name -->
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                          <label for="clientName" class="form-label">
+                            <b>Client Name</b><span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="clientName"
+                            placeholder="Enter client Name"
+                            formControlName="clientName"
+                            [class.is-invalid]="isControlInvalid('clientName')"
+                            autocomplete="off"
+                          />
+                          <div class="invalid-feedback" *ngIf="controlHasError('required', 'clientName')">
+                              Client Name is required
+                          </div>
+                        </div>
+                  
+                        <!-- Email -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                          <label for="clientDesignation" class="form-label">
+                            <b>clientDesignation</b><span class="text-danger"></span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="clientDesignation"
+                            placeholder="Enter client Designation"
+                            formControlName="clientDesignation"
+                            [class.is-invalid]="isControlInvalid('clientDesignation')"
+                            autocomplete="off"
+                          />
+                          <div class="invalid-feedback" *ngIf="controlHasError('required', 'clientDesignation')">
+                              Client Designation is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <div class="media mb-2">
+                        <div class="media-body mt-50">
+                          <h5 style="color: black; text-align: center;"><b>Upload Profile Photo</b></h5>
+                          <div class="form-group text-center">
+                            <img class="rounded-circle avatar-lg img-thumbnail user-profile-image" 
+                                 style="border: 1px solid black;" 
+                                 [src]="imgurl || 'assets/default-image.png'" 
+                                 height="100" width="100" />
+                          </div>
+                          <div class="row justify-content-center mt-2">
+                            <div class="col-auto">
+                              <input hidden #uploader type="file" name="logo" (change)="uploadFileForLogo($event)" accept="image/*">
+                              <button type="button"  class="btn btn-primary" (click)="uploader.click()">Upload</button>
+                            </div>
+                            <div *ngIf="file" class="col-auto">
+                              <button type="button" class="btn btn-danger" (click)="RemoveLogoUrl()">Remove</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row mb-3">
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <label for="map" class="form-label">
+                            <b>Description</b>
+                            <span class="text-danger">*</span>
+                          </label>
+                          <ckeditor
+                          [editor]="Editor"
+                          formControlName="description"
+                          [config]="editorConfig"
+                          class="custom-ckeditor"
+                        ></ckeditor>
+                        <!-- <div *ngIf="formGroup.get('description')?.hasError('maxLengthExceeded')">
+                          <small class="text-danger">Content exceeds the maximum length.</small>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="col-lg-12 mt-2">
+                    <div class="hstack gap-2 justify-content-end">
+                      <button
+                        type="button"
+                        class="btn btn-light btn-elevate mr-2"
+                        (click)="modal.dismiss()">
+                        Cancel
+                      </button>
+                      <button class="btn btn-primary" (click)="save()" [disabled]="formGroup.invalid">
+                        <ng-container *ngIf="this.id">Update</ng-container>
+                        <ng-container *ngIf="!this.id">Save</ng-container>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+       

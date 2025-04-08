@@ -1,0 +1,66 @@
+<div class="modal-content">
+  <div class="modal-header" style="border-bottom: 2px solid #ddd;">
+    <div class="col-11 text-center">
+      <h3>Document Detail</h3>
+    </div>
+    <div class="col-1 text-end">
+      <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss()"></button>
+    </div>
+  </div>
+
+  <div id="example-modal-sizes-name-lg" class="modal-body">
+    <div class="overlay overlay-block cursor-default">
+      <!-- Check if 'item' is available -->
+      <div *ngIf="item">
+       
+        <div class="row mb-2">
+          
+          <div class="col-6" style="align-items: center;">
+            <span class="font-semibold24">{{item.name}}</span>
+          </div>
+          <div class="col-6 text-end" style="font-weight: 600; font-size: 17px;">
+            <p><strong>{{ item.uploadedDate }}</strong></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- File List -->
+      <div class="text-end">
+        <!-- Show "Download All" button only if totalDocumentCount > 1 -->
+        <button class="btn custom-btn btn-sm" *ngIf="item.userDocumentResponses.length > 1" (click)="downloadAllAsZip(item.id)">
+          <svg style="cursor: pointer;" width="23" height="15" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.9781 5.14241C17.6461 5.0764 17.375 4.86937 17.236 4.57331C15.6837 1.30175 12.0921 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83953 17.9771 5.14341L17.9781 5.14241ZM15.1246 12.7057L12.4172 15.4132C12.0301 15.8003 11.521 15.9953 11.0119 15.9973L11.0029 15.9993L10.9939 15.9973C10.4848 15.9953 9.97574 15.8003 9.58867 15.4132L6.8812 12.7057C6.49013 12.3147 6.49013 11.6826 6.8812 11.2915C7.27227 10.9004 7.90438 10.9004 8.29544 11.2915L10.0027 12.9988V7.99791C10.0027 7.44481 10.4508 6.99774 11.0029 6.99774C11.555 6.99774 12.0031 7.44481 12.0031 7.99791V12.9988L13.7104 11.2915C14.1015 10.9004 14.7336 10.9004 15.1246 11.2915C15.5157 11.6826 15.5157 12.3147 15.1246 12.7057Z" fill="#ffffff"/>
+          </svg>
+          <span>Download All</span>
+        </button>
+      </div>
+
+      <!-- File list for individual downloads -->
+      <div class="row mt-3">
+        <div class="col-12">
+          <ul class="list-group">
+            <li *ngFor="let file of item.userDocumentResponses; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{{ i + 1 }}.</strong> {{ file.name.length > 50 ? (file.name | slice:0:50) + '...' : file.name }}
+                <span class="text-muted">({{ file.fileExtention }})</span>
+              </div>
+              <div class="d-flex justify-content-between gap-2">
+                <button class="btn btn-primary btn-sm"  (click)="downloadFile(file.id)">
+                    <svg style="cursor: pointer;" width="21" height="12" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.9781 5.14241C17.6461 5.0764 17.375 4.86937 17.236 4.57331C15.6837 1.30175 12.0921 -0.527573 8.49948 0.134542C5.22691 0.734647 2.66146 3.3471 2.11437 6.63667C1.95234 7.60784 1.96434 8.58001 2.14737 9.52718C2.20738 9.83623 2.07436 10.1803 1.80131 10.4283C0.656114 11.4695 0 12.9528 0 14.499C0 17.5316 2.46743 20 5.50096 20H16.5029C20.6396 20 24.0042 16.6354 24.0042 12.4987C24.0042 8.93307 21.4697 5.83953 17.9771 5.14341L17.9781 5.14241ZM15.1246 12.7057L12.4172 15.4132C12.0301 15.8003 11.521 15.9953 11.0119 15.9973L11.0029 15.9993L10.9939 15.9973C10.4848 15.9953 9.97574 15.8003 9.58867 15.4132L6.8812 12.7057C6.49013 12.3147 6.49013 11.6826 6.8812 11.2915C7.27227 10.9004 7.90438 10.9004 8.29544 11.2915L10.0027 12.9988V7.99791C10.0027 7.44481 10.4508 6.99774 11.0029 6.99774C11.555 6.99774 12.0031 7.44481 12.0031 7.99791V12.9988L13.7104 11.2915C14.1015 10.9004 14.7336 10.9004 15.1246 11.2915C15.5157 11.6826 15.5157 12.3147 15.1246 12.7057Z" fill="#ffffff"/>
+                    </svg>
+                    <span>Download</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

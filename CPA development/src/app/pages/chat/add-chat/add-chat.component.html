@@ -1,0 +1,291 @@
+<div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
+    <div class="chat-leftsidebar">
+        <div class="px-4 pt-4 mb-3">
+            <div class="d-flex align-items-start">
+                <div class="flex-grow-1">
+                    <h5 class="mb-4">Chats</h5>
+                </div>
+               
+            </div>
+          
+
+        </div> <!-- .p-4 -->
+
+        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav nav-tabs nav-tabs-custom nav-success nav-justified"
+            role="tablist">
+            <li class="nav-item" [ngbNavItem]="1">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                    Chats
+                </a>
+                <ng-template ngbNavContent>
+                    <ngx-simplebar class="chat-room-list pt-3">
+                        <div class="d-flex align-items-center px-4 mb-2">
+                            <div class="flex-grow-1">
+                                <h4 class="mb-0 fs-11 text-muted text-uppercase">Direct Messages</h4>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div data-bs-toggle="tooltip" data-bs-trigger="hover" ngbTooltip="New Message"
+                                    placement="bottom">
+
+                                    <!-- Button trigger modal -->
+                                    <!-- <button type="button" class="btn btn-soft-success btn-sm shadow-none">
+                                        <i class="ri-add-line align-bottom"></i>
+                                    </button> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message-list">
+                            <ul class="list-unstyled chat-list chat-user-list" id="userList">
+                                <li *ngFor="let data of UserList" [ngClass]="{'active': data.userName == username}">
+                                    <a href="javascript: void(0);"
+                                        (click)="chatUsername(data.userName, data.chatId, data.usersId)">
+                                        <div class="d-flex align-items-center"> 
+                                            <div
+                                                class="flex-shrink-0 chat-user-img {{data.status}} align-self-center me-2 ms-0">
+                                                <!-- <div class="avatar-xxs" *ngIf="data.image">
+                                                    <img src="{{data.image}}"
+                                                        class="rounded-circle img-fluid userprofile" alt="">
+                                                </div> -->
+                                                <div class="avatar-xxs" >
+                                                    <span class="avatar-title rounded-circle bg-danger userprofile">{{
+                                                        data.userName.charAt(0) }}</span>
+                                                </div>
+                                                <span class="user-status"></span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-truncate mb-0">{{data.userName}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                 
+                    </ngx-simplebar>
+                </ng-template>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content  text-muted">
+            <div [ngbNavOutlet]="nav"></div>
+        </div>
+
+    </div>
+    <!-- end chat leftsidebar -->
+    <!-- Start User chat -->
+    <div class="user-chat w-100 overflow-hidden">
+
+        <div class="chat-content d-lg-flex">
+            <!-- start chat conversation section -->
+            <div class="w-100 overflow-hidden position-relative">
+                <!-- conversation user -->
+                <div class="position-relative">
+                    <div class="p-3 user-chat-topbar">
+                        <div class="row align-items-center">
+                            <div class="col-sm-4 col-8">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 d-block d-lg-none me-3">
+                                        <a href="javascript: void(0);" class="user-chat-remove fs-18 p-1"
+                                            (click)="hideChat();"><i class="ri-arrow-left-s-line align-bottom"></i></a>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 chat-user-img user-own-img align-self-center me-3 ms-0"
+                                                [ngClass]="{'away': isStatus == 'away', 'online': isStatus == 'online'}">
+                                                <img src="{{isProfile}}" class="rounded-circle avatar-xs" alt="">
+                                                <span class="user-status"></span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate mb-0 fs-16"><a class="text-reset username"
+                                                        data-bs-toggle="offcanvas" href="javascript:void(0);"
+                                                        aria-controls="userProfileCanvasExample"
+                                                       >{{userName}}</a></h5>
+                                                <p class="text-truncate text-muted fs-14 mb-0 userStatus"><small>{{
+                                                        isStatus | titlecase }}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-4">
+                                <ul class="list-inline user-chat-nav text-end mb-0">
+                                    <li class="list-inline-item m-0">
+                                        <div class="dropdown" ngbDropdown>
+                                        
+                                                <ul class="list-inline user-chat-nav text-end mb-0">
+                                                    <li class="list-inline-item m-0">
+                                                        <button type="button" class="btn btn-danger btn-sm" (click)="clearChat()">
+                                                            Clear Chat
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                        
+                                            <!-- <button
+                                                class="btn btn-ghost-secondary btn-icon shadow-none arrow-none d-block"
+                                                type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" ngbDropdownToggle>
+                                                <i-feather name="search" class="icon-sm"></i-feather>
+                                            </button> -->
+                                            <!-- <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg"
+                                                ngbDropdownMenu>
+                                                <div class="p-2">
+                                                    <div class="search-box">
+                                                        <input type="text" class="form-control bg-light border-light"
+                                                            placeholder="Search here..." id="searchMessage"
+                                                            autocomplete="off" (keyup)="MessageSearch()">
+                                                        <i class="ri-search-2-line search-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </li>
+
+                                    <!-- <li class="list-inline-item d-none d-lg-inline-block m-0">
+                                        <button type="button" class="btn btn-ghost-secondary btn-icon shadow-none"
+                                            data-bs-toggle="offcanvas" data-bs-target="#userProfileCanvasExample"
+                                            aria-controls="userProfileCanvasExample" (click)="openEnd(userInfo)">
+                                            <i-feather name="info" class="icon-sm"></i-feather>
+                                        </button>
+                                    </li> -->
+
+                                 
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end chat user head -->
+
+                    <div class="position-relative" id="users-chat">
+                        <ngx-simplebar  class="chat-conversation p-3" #scrollRef>
+                            <ul class="list-unstyled chat-conversation-list chat-sm" id="users-conversation">
+                                <li class="chat-list"  
+                                    [ngClass]="{'left': data.usersId === userId, 'right': data.usersId === currentUser.id}"
+                                    *ngFor="let data of chatList">
+                                    <div class="conversation-list" *ngIf=" data.usersId === userId || data.usersId === currentUser.id">
+                                        <!-- <div *ngIf="data.userId != currentUser.id" class="chat-avatar">
+                                            <img src="assets/images/i2.jpg" alt="">
+                                        </div> -->
+                                        <div class="user-chat-content">
+                                            <div class="conversation-name">
+                                                <small class="text-muted">{{ data.usersName }}</small>
+                                            </div>
+                                            <div class="ctext-wrap">
+                                                <div class="ctext-wrap-content">
+                                                    <p class="mb-0 ctext-content">{{ data.message }}</p>
+                                                    <input *ngIf="data.id === editingMessageId"
+                                                    [(ngModel)]="editedMessage"
+                                                    class="form-control"
+                                                    type="text"
+                                                    (blur)="saveEditedMessage(data.id,data)"
+                                                    (keydown.enter)="saveEditedMessage(data.id,data)">
+                                                    <div *ngIf="data.id === editingMessageId" class="edit-buttons mt-1">
+                                                        <button class="btn btn-success btn-sm " (click)="saveEditedMessage(data.id,data)">Save</button>
+                                                        <button class="btn btn-danger btn-sm" (click)="cancelEdit()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                           
+                                                <div class="dropdown align-self-start message-box-drop" ngbDropdown *ngIf="data.usersId === currentUser.id">
+                                                    <a class="dropdown-toggle arrow-none" href="javascript:void(0);"
+                                                        role="button" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                                                        <i class="ri-more-2-fill"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" ngbDropdownMenu>
+                                                       
+                                                        <a class="dropdown-item copy-message" href="javascript:void(0);"  (click)="editMessage(data.id, data.message)" ><i class=" ri-pencil-line me-2 text-muted align-bottom float-start"></i>Edit</a>
+                                                     
+                                                        <a class="dropdown-item delete-item" href="javascript:void(0);" (click)="deleteMessage($event,data)"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom float-start"></i>Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="conversation-name">
+                                                <small class="text-muted time">{{ data.createdOn }}</small>
+                                                <span class="text-success check-message-icon">
+                                                    <i class="ri-check-double-line align-bottom"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </ngx-simplebar>
+                        <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade show"
+                            id="copyClipBoard" role="alert">
+                            Message copied
+                        </div>
+                    </div>
+
+                    <!-- end chat-conversation -->
+
+                    <div class="chat-input-section p-3 p-lg-4">
+
+                        <form (ngSubmit)="sendMessage()" [formGroup]="formData" id="chatinput-form"
+                            enctype="multipart/form-data">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-auto">
+                                    <!-- <div class="chat-input-links me-2">
+                                        <div class="links-list-item">
+                                            <button type="button" class="btn btn-link text-decoration-none emoji-btn"
+                                                id="emoji-btn" (click)="toggleEmojiPicker()">
+                                                <i class="bx bx-smile align-middle"></i>
+                                            </button>
+                                            <emoji-mart class="emoji-mart" *ngIf="showEmojiPicker"
+                                                (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col">
+                                    <div *ngIf="submitted && form['message'].errors" class="chat-input-feedback">
+                                        <span *ngIf="form['message'].errors['required']">Please Enter a Message</span>
+                                    </div>
+                                    <input type="text" class="form-control chat-input bg-light border-light"
+                                        id="chat-input" placeholder="Type your message..." autocomplete="off"
+                                        formControlName="message"
+                                        [ngClass]="{ 'is-invalid': submitted && form['message'].errors }"
+                                        [(ngModel)]="emoji" (blur)="onBlur()" (focus)="onFocus()">
+                                </div>
+                                <div class="col-auto">
+                                    <div class="chat-input-links ms-2">
+                                        <div class="links-list-item">
+                                            <button type="submit" [disabled]="formData.invalid"
+                                                class="btn btn-success chat-send waves-effect waves-light shadow">
+                                                <i class="ri-send-plane-2-fill align-bottom"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="replyCard">
+                        <div class="card mb-0">
+                            <div class="card-body py-3">
+                                <div class="replymessage-block mb-0 d-flex align-items-start text-start">
+                                    <div class="flex-grow-1">
+                                        <h5 class="conversation-name"></h5>
+                                        <p class="mb-0"></p>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <button type="button" id="close_toggle"
+                                            class="btn btn-sm btn-link mt-n2 me-n3 fs-18 shadow-none"
+                                            (click)="closeReplay()">
+                                            <i class="bx bx-x align-middle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chat Info Sidebar -->

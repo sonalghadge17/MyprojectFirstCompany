@@ -1,0 +1,241 @@
+<div class="modal-content">
+  <div class="modal-header p-3 bg-light">
+    <div class="col-6">
+      <h5 class="modal-title" id="myModalLabel" style="color: black">
+        <b>{{ id ? "Update Payment" : "Add Payment" }}</b>
+      </h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      (click)="modal.dismiss()"
+      aria-label="Close"
+    ></button>
+  </div>
+  <hr class="m-0" />
+  <div class="modal-body">
+    <form [formGroup]="formGroup">
+      <div class="row mb-3">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <label for="name" class="form-label">
+            <b>Payment Label</b><span class="text-danger">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control form-control-solid"
+            name="name"
+            placeholder="Payment Label"
+            autocomplete="off"
+            [class.is-invalid]="isControlInvalid('label')"
+            [class.is-valid]="isControlValid('label')"
+            formControlName="label"
+            (input)="onTotalAmountChange()"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="controlHasError('required', 'label')"
+          >
+          label is required
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <label for="businessName" class="form-label">
+            <b>Select User</b><span class="text-danger">*</span>
+          </label>
+          <ng-select
+            placeholder="Select User"
+            [hideSelected]="true"
+            bindValue="id"
+            formControlName="userId"
+            [items]="userList"
+            [closeOnSelect]="true"
+            [searchFn]="customSearchFunction"
+          >
+            <ng-template ng-label-tmp let-item="item">
+              {{ item.firstName }} {{ item.lastName }} ({{ item.email }})
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+              <div>
+                <span>{{ item.firstName }} {{ item.lastName }}</span>
+                <br />
+                <small>{{ item.email }}</small>
+              </div>
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <label for="name" class="form-label">
+            <b>Amount</b><span class="text-danger">*</span>
+          </label>
+          <input
+            type="number"
+            class="form-control form-control-solid"
+            name="name"
+            placeholder="Total Amount"
+            autocomplete="off"
+            [class.is-invalid]="isControlInvalid('totalAmount')"
+            [class.is-valid]="isControlValid('totalAmount')"
+            formControlName="totalAmount"
+            (input)="onTotalAmountChange()"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="controlHasError('required', 'totalAmount')"
+          >
+            totalAmount is required
+          </div>
+        </div>
+      </div>
+   
+      <hr class="mt-4" />
+      <div class="col-md-12">
+        <div class="card shadow border mt-3">
+          <div class="card-body">
+            <div class="row col-12">
+              <div class="col-6">
+                <h5 class="mb-0">Payment Details</h5>
+              </div>
+            </div>
+            <hr />
+
+            <div class="text-end col-12">
+              <button class="btn btn-soft-info" (click)="addMilestone()">
+                + Add Milestone
+              </button>
+            </div>
+            <form [formGroup]="Milestone_form" (ngSubmit)="submitMilestone()">
+              <div formArrayName="milestoneRequests">
+                <div
+                  *ngFor="
+                    let amnGroup of milestone_Controls.controls;
+                    let i = index"
+                  class="mb-2"
+                >
+                  <div [formGroupName]="i">
+                    <div class="row mb-2">
+                      <!-- Milestone Sequence Column -->
+                      <!-- <div class="col-md-2">
+                        <label for="amenity{{ i }}">Milestone Sequence :</label>
+                        <div id="amenity{{ i }}" class="form-control">
+                          {{ i + 1 }} 
+                        </div>
+                      </div> -->
+                      
+                      <!-- Milestone Column -->
+                      <div class="col-md-5">
+                        <label for="amenity{{ i }}">Milestone:</label>
+                        <input
+                        type="text"
+                        id="amenity{{ i }}"
+                        class="form-control"
+                        placeholder="Enter Amount"
+                        formControlName="milestoneName"
+                        [value]="'Milestone' + (i + 1)"
+                        readonly
+                      />
+                      </div>
+                      
+                      <!-- Milestone Amount Column -->
+                      <div class="col-md-5">
+                        <label for="amenity{{ i }}">Milestone Amount:</label>
+                        <input
+                          type="number"
+                          id="amenity{{ i }}"
+                          class="form-control"
+                          placeholder="Enter Amount"
+                          formControlName="milestoneAmount"
+                          (input)="onMilestoneAmountChange()"
+                        />
+                      </div>
+                    
+                      <!-- Remove Button Column -->
+                      <div class="col-md-2 text-end mt-4">
+                        <button
+                          class="btn btn-danger btn-sm m-1"
+                          (click)="removeMilestone(i)">
+                          <i class="bx bx-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+                        <label for="name" class="form-label">
+                         Shipping and Handling Amount<span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="number"
+                          class="form-control form-control-solid"
+                          name="name"
+                          placeholder="Shipping And Handling Amount"
+                          autocomplete="off"
+                      
+                          formControlName="shippingAndHandlingAmount"
+
+                          [class.is-invalid]="isControlInvalidForMilestone(i, 'shippingAndHandlingAmount')"
+                          (input)="onTotalAmountChange()"
+                        />
+                        <div class="invalid-feedback" *ngIf="controlHasErrorForMilestone(i, 'required', 'shippingAndHandlingAmount')">
+                          Shipping and Handling Amount is required.
+                        </div>
+                      </div>
+                      <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+                        <label for="name" class="form-label">
+                        Tax<span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                          <input
+                            type="number"
+                            class="form-control form-control-solid"
+                            id="tax"
+                            name="tax"
+                            placeholder="Tax"
+                            autocomplete="off"
+                            [class.is-invalid]="isControlInvalidForMilestone(i, 'tax')"
+                            formControlName="tax"
+                            (input)="onTotalAmountChange()"
+                          />
+                          <div class="invalid-feedback" *ngIf="controlHasErrorForMilestone(i, 'required', 'shippingAndHandlingAmount')">
+                           Tax is required.
+                          </div>
+                          <!-- <span class="input-group-text">%</span> -->
+              
+                        </div>
+                        <!-- [class.is-invalid]="isControlInvalid('tax')"
+                        [class.is-valid]="isControlValid('tax')"
+                        <div
+                          class="invalid-feedback"
+                          *ngIf="controlHasError('required', 'tax')"
+                        >
+                          Tax is required
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            </form>
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-12 text-end">
+        <button
+          type="button"
+          class="btn btn-light me-2"
+          (click)="modal.dismiss()">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="formGroup.invalid||Milestone_form.invalid|| !isAmountsMatching()|| isLoading"
+          (click)="Save_Payment()"
+        >
+          <ng-container *ngIf="this.id">Update</ng-container>
+          <ng-container *ngIf="!this.id">Save</ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

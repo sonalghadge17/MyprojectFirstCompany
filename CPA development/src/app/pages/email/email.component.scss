@@ -1,0 +1,50 @@
+/* Card Layout */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(222, 215, 215, 0.1);
+    margin: 20px auto;
+    max-width: 1000px; /* Adjust width as needed */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Header Styles */
+  .card-header {
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+  }
+  
+  .top-bar {
+    background-color: #d7cfcf;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: right;
+  }
+  
+  .top-bar .contact-info a {
+    color: #0c0202;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .top-bar .contact-info span {
+    color: #fff;
+  }
+  
+  /* Optional: Container styles */
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  

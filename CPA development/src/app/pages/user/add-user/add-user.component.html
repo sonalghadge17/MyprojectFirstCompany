@@ -1,0 +1,218 @@
+<div class="modal-content">
+  <div class="modal-header p-3 bg-light">
+    <div class="col-6">
+      <h5 class="modal-title" id="myModalLabel" style="color: black">
+        <b>{{ id ? "Update Customer" : "Add Customer" }}</b>
+      </h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      (click)="modal.dismiss()"
+      aria-label="Close"
+    ></button>
+  </div>
+    
+        
+        <!-- Form Section -->
+        <div class="modal-body">
+          <div class="p-2">
+            <form [formGroup]="formGrouptt">
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="businessName" class="form-label">
+                    <b>First Name</b><span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    name="name"
+                    placeholder="First Name"
+                    autocomplete="off"
+                    [class.is-invalid]="isControlInvalid('firstName')"
+                    [class.is-valid]="isControlValid('firstName')"
+                    formControlName="firstName"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'firstName')"
+                  >
+                    Name is required
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="businessName" class="form-label">
+                    <b>Last Name</b><span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    name="lastName"
+                    placeholder="last Name"
+                    autocomplete="off"
+                    [class.is-invalid]="isControlInvalid('lastName')"
+                    [class.is-valid]="isControlValid('lastName')"
+                    formControlName="lastName"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'lastName')"
+                  >
+                    Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="email" class="form-label">
+                    <b>Email</b><span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter Email"
+                    formControlName="email"
+                    [class.is-invalid]="isControlInvalid('email')"
+                    [readonly]="id"
+                    autocomplete="off"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'email')"
+                  >
+                    Email is required.
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('pattern', 'email')"
+                  >
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="mobile number" class="form-label">
+                    <b>Mobile Number</b><span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    name="mobileNo"
+                    placeholder="Mobile Number"
+                    autocomplete="off"
+                    [class.is-invalid]="isControlInvalid('mobileNo')"
+                    [class.is-valid]="isControlValid('mobileNo')"
+                    formControlName="mobileNo"
+                    numbersOnly
+                    minlength="10"
+                    maxlength="10"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'mobileNo')"
+                  >
+                    Mobile No is required
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="password" class="form-label">
+                    <b>Password</b><span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group auth-pass-inputgroup">
+                    <input
+                      [type]="passwordoldTextType ? 'text' : 'password'"
+                      class="form-control"
+                      placeholder="Enter password"
+                      formControlName="password"
+                      [class.is-invalid]="isControlInvalid('password')"
+                      aria-label="password"
+                      aria-describedby="password-addon"
+                    />
+                    <button
+                      (click)="toggleOldPasswordTextType()"
+                      class="btn btn-danger ms-0"
+                      type="button"
+                      id="password-addon"
+                    >
+                      <i
+                        class="mdi mdi-eye-outline"
+                        [ngClass]="{
+                          'mdi-eye-off': passwordoldTextType,
+                          'mdi-eye-outline': !passwordoldTextType
+                        }"
+                      ></i>
+                    </button>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="controlHasError('required', 'password')"
+                    >
+                       Password is required
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="password" class="form-label">
+                    <b> Confirm Password</b><span class="text-danger">*</span>
+                  </label>
+                <div class="input-group auth-pass-inputgroup">
+                  <input
+                    [type]="
+                      passwordConfirmTextType ? 'text' : 'password'"
+                    class="form-control"
+                    formControlName="cPassword"
+                    placeholder="Enter password"
+                    [class.is-invalid]="
+                      isControlInvalid('cPassword')
+                    "
+                    autocomplete="off"
+                    aria-label="Password"
+                    aria-describedby="password-addon"/>
+                  <button
+                    (click)="toggleConfirmPasswordTextType()"
+                    class="btn btn-danger ms-0"
+                    type="button"
+                    id="password-addon"
+                  >
+                    <i
+                      class="mdi mdi-eye-outline"
+                      [ngClass]="{
+                        'mdi-eye-off': passwordConfirmTextType,
+                        'mdi-eye-outline': !passwordConfirmTextType
+                      }"
+                    ></i>
+                  </button>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="controlHasError('required', 'cPassword')"
+                  >
+                    Confirm Password is required
+                  </div>
+                  <div class="invalid-feedback" *ngIf="controlHasError('confirmPasswordValidator', 'cPassword')"
+                  style="color: #E12C2C;">
+                  Confirm password does not match
+              </div>
+                </div>
+                </div>
+              </div>
+              <hr />
+              <div class="col-lg-12 mt-2">
+                <div class="hstack gap-2 justify-content-end">
+                  <button
+                    type="button"
+                    class="btn btn-light btn-elevate mr-2"
+                    (click)="modal.dismiss()">
+                    Cancel
+                  </button>
+                  <button class="btn btn-primary" (click)="save()" [disabled]="formGrouptt.invalid && !id">
+                    <ng-container *ngIf="this.id">Update</ng-container>
+                    <ng-container *ngIf="!this.id">Save</ng-container>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+     
+</div>

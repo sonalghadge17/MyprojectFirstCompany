@@ -1,0 +1,53 @@
+.custom-btn{
+    background-color: #21CA67;
+    font-size: 16px;
+    color: white;
+    font-family: 'Poppins',sans-serif;;
+    font-weight: 600;
+    border-radius: 10px;
+    // width: 120px;
+  }
+
+  ngx-dropzone , .custom-dropzone {
+    border: 1px solid #D9D9D9 !important; /* Solid border with desired color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    padding: 20px; /* Optional: Add some padding for better appearance */
+    transition: border-color 0.3s ease; /* Optional: Smooth transition on hover */
+    background-color: #F9FAFA;
+}
+
+ngx-dropzone-image-preview .spinner-border {
+    display: none !important;
+  }
+
+  .uanet_dropzone{
+    border: 1px solid #D9D9D9 !important; /* Solid border with desired color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    padding: 20px; /* Optional: Add some padding for better appearance */
+    transition: border-color 0.3s ease; /* Optional: Smooth transition on hover */
+    background-color: #F9FAFA;
+  }
+
+  .files-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Add spacing between files */
+    align-items: flex-start;
+  }
+  
+  .file-preview {
+    width: 120px; /* Fixed width for each file preview */
+    text-align: center;
+    margin-bottom: 10px; /* Add spacing between rows */
+  }
+  
+  .file-preview img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .file-preview span {
+    font-size: 10px;
+    word-wrap: break-word;
+  }

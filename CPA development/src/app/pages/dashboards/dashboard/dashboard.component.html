@@ -1,0 +1,185 @@
+<app-breadcrumbs title="DASHBOARD"></app-breadcrumbs>
+<div class="row">
+  <div class="col">
+    <div class="h-100">
+      <div class="row mb-3 pb-1">
+        <div class="col-12">
+          <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+            <div class="flex-grow-1">
+              <h4 class="fs-16 mb-1">Good Morning, Admin!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="fw-medium mb-0">Total User</p>
+                  <h2 class="mt-4 ff-secondary fw-semibold">
+                    <span *ngIf="totaldashboardUsercount" class="counter-value">
+                      {{
+                        totaldashboardUsercount.userCount == null ||
+                        totaldashboardUsercount.userCount == "" ||
+                        totaldashboardUsercount.userCount == undefined
+                          ? "0"
+                          : totaldashboardUsercount.userCount
+                      }}
+                    </span>
+                  </h2>
+                </div>
+                <!-- <div>
+                  <div class="avatar-sm flex-shrink-0">
+                    <span
+                      class="avatar-title bg-soft-warning rounded-circle fs-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users text-warning">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="fw-medium mb-0">Total Document</p>
+                  <h2 class="mt-4 ff-secondary fw-semibold">
+                    <span *ngIf="totaldashboardUsercount" class="counter-value">
+                      {{
+                        totaldashboardUsercount.documentCount == null ||
+                        totaldashboardUsercount.documentCount == "" ||
+                        totaldashboardUsercount.documentCount == undefined
+                          ? "0"
+                          : totaldashboardUsercount.documentCount
+                      }}
+                    </span>
+                  </h2>
+                </div>
+                <!-- <div>
+                  <div class="avatar-sm flex-shrink-0">
+                    <span
+                      class="avatar-title bg-soft-warning rounded-circle fs-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24px"
+                        height="24px"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users text-warning">
+                        
+                      </svg>
+                      <img
+                        src="https://c7.alamy.com/comp/2R7W0FD/a-branch-of-coffea-tree-isolated-on-white-background-2R7W0FD.jpg"
+                        alt=""
+                        width="40"
+                        height="40"/>
+                    </span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="fw-medium mb-0">Total Subadmin</p>
+                  <h2 class="mt-4 ff-secondary fw-semibold">
+                    <span *ngIf="totaldashboardUsercount" class="counter-value">
+                      {{
+                        totaldashboardUsercount.subadmin ==
+                          null ||
+                        totaldashboardUsercount.subadmin ==
+                          "" ||
+                        totaldashboardUsercount.subadmin ==
+                          undefined
+                          ? "0"
+                          : totaldashboardUsercount.subadmin
+                      }}
+                    </span>
+                  </h2>
+                </div>
+                <!-- <div>
+                  <div class="avatar-sm flex-shrink-0">
+                    <span
+                      class="avatar-title bg-soft-warning rounded-circle fs-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24px"
+                        height="24px"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users text-warning">
+                     
+                      </svg>
+                      <img
+                        src="https://static.vecteezy.com/system/resources/previews/000/353/865/original/fertiliizer-vector-icon.jpg"
+                        alt=""
+                        height="40"
+                        width="40"/>
+                    </span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="fw-medium mb-0">Total Content</p>
+                  <h2 class="mt-4 ff-secondary fw-semibold">
+                    <span *ngIf="totaldashboardUsercount" class="counter-value">
+                      {{
+                        totaldashboardUsercount.totalPlot == null ||
+                        totaldashboardUsercount.totalPlot == "" ||
+                        totaldashboardUsercount.totalPlot == undefined
+                        ? "0": totaldashboardUsercount.totalPlot
+                      }}
+                    </span>
+                  </h2>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div> -->
+      
+      
+    </div>
+  </div>
+</div>

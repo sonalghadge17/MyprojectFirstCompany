@@ -1,0 +1,9 @@
+.checkbox-gap {
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .checkbox-gap {
+      margin-right: 5px; /* Adjust the margin for smaller screens */
+    }
+  }
