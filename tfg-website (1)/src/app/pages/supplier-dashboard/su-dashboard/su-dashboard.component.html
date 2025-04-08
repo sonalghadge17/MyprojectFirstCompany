@@ -1,0 +1,162 @@
+
+<div class="row">
+    <div class="col-md-5 col-lg-5 dashboard-header">
+        <h4>Hello Sachin 👋</h4>
+        <p class="mt-3">Monitoring Key Metrics for Supplier Efficiency and Quality</p>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">Duration</span><span class="text-danger">*</span></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Custom Range</option>
+                        <option value="1">One Week</option>
+                        <option value="2">One Month</option>
+                        <option value="3">One Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">From Date</span><span class="text-danger">*</span></label>
+                    <input class="form-control" [value]="currentDate" type="date">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">To Date</span><span class="text-danger">*</span></label>
+                    <input class="form-control" type="date">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card p-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="col-lg-12 total-counts">
+                                120
+                        </div>
+                        <div class="col-lg-12 card-heading">Total Deals</div>
+                    </div>
+                    <div class="col-4">
+                        <img class="mx-auto img-fluid" src="../../../../assets/buyer-dashboard/cards/total_deals.png"
+                            height="55" width="55" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card p-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="col-lg-12 total-counts">
+                                15
+                        </div>
+                        <div class="col-lg-12 card-heading">Completed</div>
+                    </div>
+                    <div class="col-4">
+                        <img class="mx-auto img-fluid" src="../../../../assets/buyer-dashboard/cards/completed.png"
+                            height="55" width="55" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card p-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="col-lg-12 total-counts">
+                            35
+                        </div>
+                        <div class="col-lg-12 card-heading">In Process</div>
+                    </div>
+                    <div class="col-4">
+                        <img class="mx-auto img-fluid" src="../../../../assets/buyer-dashboard/cards/process.png"
+                            height="55" width="55" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card p-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="col-lg-12 total-counts">
+                                15
+                        </div>
+                        <div class="col-lg-12 card-heading">Cancelled</div>
+                    </div>
+                    <div class="col-4">
+                        <img class="mx-auto img-fluid" src="../../../../assets/buyer-dashboard/cards/cancelled.png"
+                            height="55" width="55" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6 col-sm-12 col-12 dashboard-bar">
+        <img src="../../../../assets/buyer-dashboard/dashboard-bar.png" class="img-fluid dashboard-chart" alt="">
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6 col-sm-12 col-12">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between">
+                <span class="recent-deals-heading">Recent Deals</span>
+                <a class="see-all cursor-pointer">Sell All</a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            @for(deal of recentDeals; track deal.id){
+                <div class="col-12">
+                    <div class="card  mb-2 recent-deal-card" style="padding: 12px;">
+                       <div class="row">
+                        <div class="col-2">
+                            <img [src]="deal?.imgUrl" class="img-fluid" alt="">
+                        </div>
+                        <div class="col">
+                             <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-name">{{deal?.name}} <span class="px-2 name-line">|</span> {{deal?.dealPrice}}</div>
+                                <div class="product-date-time">{{deal?.dateTime}}</div>
+                             </div>
+                             <div class="mt-2 d-flex">
+                                 <div>
+                                    <span class="totalWeightLabel">Total Weight - </span><span class="totalWeight">{{deal?.totalWeight}}</span>
+                                </div>
+                                <div style="margin-left: 20px;">
+                                    <span class="totalWeightLabel">Deal Price - </span><span class="totalWeight">{{deal?.dealPrice}}</span>
+                                </div>
+                             </div>
+                             <div class="mt-1">
+                                <div>
+                                   <span class="totalWeightLabel">Status - </span><span class="totalWeight">{{deal?.status}}</span>
+                               </div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

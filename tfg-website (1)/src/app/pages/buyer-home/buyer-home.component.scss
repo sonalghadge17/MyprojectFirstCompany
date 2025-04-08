@@ -1,0 +1,327 @@
+.main-banner h3{
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 65px;
+}
+.main-banner p{
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    opacity: 0.8;
+}
+
+// .card{
+//     border: 1 px solid lightgray;
+//     box-shadow: none;
+//     border-radius: 15px;
+// }
+
+
+
+// recent deals row 
+.recent-deals-card {
+    border: 1px solid rgb(227, 226, 226) !important;
+    border-radius: 18px;
+    padding: 15px;
+}
+
+.recent-deals-card .total-counts {
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 41.8px;
+}
+.recent-deals-card .recent-deals-heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.recent-deals-card .see-all {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17.6px;
+    color: var(--red-color);
+    text-decoration: underline;
+}
+
+.recent-deals-card .see-all:hover {
+    color: rgb(248, 6, 6);
+}
+
+// deals card list 
+.recent-deals-card .recent-deal-card {
+    box-shadow: none !important;
+}
+
+.recent-deals-card .product-name {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 18px;
+    opacity: 0.9;
+}
+
+.recent-deals-card .name-line {
+    opacity: 0.4;
+    font-weight: 300;
+
+}
+
+.recent-deals-card .product-date-time {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13.2px;
+    opacity: 0.5;
+}
+
+.recent-deals-card .totalWeightLabel {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    opacity: 0.5;
+}
+
+.recent-deals-card .totalWeight {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18.2px;
+}
+.takeAction{
+    text-decoration: underline;
+    color: var(--blue-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+.bg-custom{
+    background-color: rgb(242, 239, 239);
+    border-radius: 7px;
+}
+.btn-text-custom{
+    font-weight: 600;
+    font-size: 15px;
+    opacity: 0.7;
+    
+}
+
+.custom-card-scroller
+
+.custom-card-scroller {
+    // height: 357px;
+    overflow-y: auto;
+  }
+  
+  /* Hide the default scrollbar */
+  .custom-card-scroller::-webkit-scrollbar {
+    width: 3px !important;
+    height: 4px !important;
+  }
+  
+  /* Style for the scrollbar track */
+  .custom-card-scroller::-webkit-scrollbar-track {
+    background-color: #fff;
+    opacity: 0.5;
+  }
+  
+  /* Style for the scrollbar thumb */
+  .custom-card-scroller::-webkit-scrollbar-thumb {
+    background-color: #e0dbdb;
+    border-radius: 3px;
+    opacity: 0.5;
+
+  }
+  
+  /* Show the scrollbar thumb on hover */
+  .custom-card-scroller:hover::-webkit-scrollbar-thumb {
+    background-color: #e0dbdb;
+  }
+  .p-name{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19.8px;
+    opacity: 0.8;
+  }
+  .seller-name{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19.8px;
+  }
+  .seller-country{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15.8px;
+    opacity: 0.5;
+
+  }
+  .img-new{
+    max-height: 300px !important;
+    overflow: hidden;
+  }
+  .custom-deal-now-btn{
+    background-color: var(--blue-color) !important;
+    border-radius: 8px !important ;
+
+  }
+  .feature-heading{
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 36.3px;
+  }
+  .see-all-btn{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: var(--red-color);
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
+//   featured product 
+// product card css
+.our-product-card {
+    border: 1px solid rgb(242, 242, 242) !important;
+    border-radius: 15px;
+    padding: 15px;
+  }
+  
+  .p-name {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19.8px;
+    color: rgba(79, 88, 94, 1);
+  
+  }
+  
+  .p-price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: rgba(79, 88, 94, 1);
+  }
+  
+  .cName {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17.6px;
+    opacity: 0.9;
+  }
+  
+  .supCountryName {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15.4px;
+    opacity: 0.5;
+    margin-left: 5px;
+  }
+  
+  .custom-deal-btn {
+    background-color: var(--blue-color);
+    border-radius: 10px;
+  
+  }
+  
+  .custom-deal-btn-txt {
+    color: rgba(251, 253, 254, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+  }
+  
+  .btn-primary-custom{
+    background-color: var(--blue-color);
+    border-radius: 10px;
+  
+  }
+  .btn-light-custom{
+    background-color:rgba(251, 253, 254, 1);
+    border-radius: 10px;
+    border-color:var(--blue-color);
+    color:var(--blue-color);
+  
+  }
+  
+  .custom-view-btn {
+    background-color: none;
+    border: 1px solid var(--blue-color);;
+    border-radius: 10px;
+  }
+  
+  .custom-view-btn-txt {
+    color: var(--blue-color);;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+  }
+  
+  .popu-product {
+    // color:  rgba(35, 59, 119, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17.6px;
+    opacity: 0.8;
+  }
+  
+  
+  
+  
+  .popular-products {
+    // background-color: #fff;
+    // border-radius: 12px;
+    // padding: 20px;
+    // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    // font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  // .popular-products h3 {
+  //     margin-bottom: 20px;
+  //     font-size: 18px;
+  //     color: #666;
+  // }
+  
+  .product-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .product {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .product img {
+    width: 80px;
+    /* Adjust the size of the product image */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .product p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15.4px;
+    margin: 5px 0;
+    color: rgba(79, 88, 94, 1);
+  }
+  
+  .product span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17.6px;
+    color: rgba(79, 88, 94, 1);
+  }
+  
+  .divider {
+    width: 1px;
+    background-color: #ddd;
+    height: 80px;
+    margin: 0 20px;
+  }
+  

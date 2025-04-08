@@ -1,0 +1,119 @@
+<div class="row">
+    <div class="col-12">
+        <h2 style="color: #39383A; font-weight: 500; font-size: 28px;">Account Setting</h2>
+        <p style="font-weight: 400; font-size: 16px;">Update your account details</p>
+    </div>
+</div>
+<form [formGroup]="accountSettingForm">
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="row ">
+
+                    <div class="col-auto col-md-auto">
+                        <div class="form-group">
+                            <img class="rounded-circle avatar-lg img-thumbnail user-profile-image" src={{imgurl}}
+                                height="70" width="70" />
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label style="font-size: 14px; color: #4F585E;">Upload Profile Image
+                                    <span>*</span></label>
+                                <div class="row d-flex">
+                                    <div class="col-auto col-sm-auto">
+                                        <input #myInput type="file" class="form-control" #uploader name="logo"
+                                            style="width: 100px; height: 40px; border-radius: 10px;"
+                                            (change)="uploadFileForLogo($event)" accept="image/*">
+                                    </div>
+
+                                    <div class="col-auto col-sm-auto">
+                                        <button class="btn h-auto"
+                                            style="width: 100px; border-radius: 10px; background-color: #233B77; color: white; font-size: 14px;"
+                                            >Upload</button>
+                                    </div>
+
+                                    <div class="col-auto mt-2">
+                                        <p style="font-weight: 500; color: #4F585E;"><b>{{ selectedFile?.name }}</b></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">First Name *</label>
+            <input formControlName="firstName" type="text" class="form-control" placeholder="First Name">
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Last Name *</label>
+            <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
+        </div>
+        <div class="col-12 col-lg-4 mb-3">
+
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Email ID *</label>
+            <input formControlName="email" type="email" class="form-control" placeholder="Email ID">
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Phone No *</label>
+            <input formControlName="phoneNo" type="text" class="form-control" placeholder="Phone No">
+        </div>
+        <div class="col-12 col-lg-4 mb-3">
+
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Country *</label>
+            <ng-select Coupon="select country" [items]="countries"
+            bindLabel="name" bindValue="name" style="padding: 0;" (change)="onSelectCountry($event)"
+            formControlName="country" placeholder="Select Country"></ng-select>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">State *</label>
+            <ng-select Coupon="select state" [items]="states" bindLabel="name"
+            bindValue="name" style="padding: 0;" formControlName="state" 
+            placeholder="Select State" (change)="onSelectState($event)"></ng-select>
+        </div>
+        <div class="col-12 col-lg-4 mb-3">
+
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Pin Code *</label>
+            <input formControlName="pinCode" type="text" class="form-control" placeholder="Pin Code">
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <label style="font-size: 14px; color: #4F585E;">Address *</label>
+            <textarea formControlName="address" class="form-control" placeholder="Address" rows="0"></textarea>
+        </div>
+        <div class="col-12 col-lg-4 mb-3">
+
+        </div>
+    </div>
+</form>
+<div class="row mt-3">
+    <div class="col-12">
+        <button class="btn"
+            style="width: auto; background-color: #233B77; color: white; border-radius: 10px; font-size: 16px; height: 44px;">
+            <img src="./../../../../assets/support_update.png" width="22px" height="22px" alt="">
+            Update
+        </button>
+        <button class="btn ms-3"
+            style="width: auto; background-color: #DFDFDF; color: black; border-radius: 10px; font-size: 16px; height: 44px;">
+            <img src="./../../../../assets/support_cross.png" width="22px" height="22px" alt="">
+            Cancel
+        </button>
+    </div>
+</div>

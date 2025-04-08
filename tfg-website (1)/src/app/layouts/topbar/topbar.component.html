@@ -1,0 +1,113 @@
+<header class="header" id="page-topbar" [class.isHome]="isHomeScreen()" style="border-bottom: none;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg"
+            style="width: 100%; border-radius: 10px; padding: 9px 25px; background-color: transparent; z-index: 1002;">
+            <a class="navbar-brand cursor-pointer" (click)="redirectToHome()">
+                <img src="../../assets/image 15.png" alt="Transparent Food Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                (click)="toggleMobileMenu($event)" style="margin-left: auto; margin-right: 0;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}" id="navbarNav">
+                <ul class="navbar-nav ms-auto" [class.isNotloggedIn]="true">
+                   @if(!this.currentUser ||  this.currentUser?.type !== this.userType.SELLER ){
+
+                    <li class="nav-item cursor-pointer">
+                        <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item cursor-pointer">
+                        <a routerLink="our-mission" routerLinkActive="active" class="nav-link">Our mission</a>
+                    </li>
+                    @if(this.currentUser?.type == this.userType.SELLER || !this.currentUser){
+                    <li class="nav-item cursor-pointer">
+                        @if(this.currentUser){
+                        <a routerLink="sell-now" routerLinkActive="active" class="nav-link">Sell Now</a>
+                        }@else{
+                        <a class="nav-link" (click)="openSellerSignIn()">Sell Now</a>
+                        }
+                    </li>
+                    }
+                    <li class="nav-item cursor-pointer">
+                        @if(this.currentUser?.type == this.userType.SELLER){
+                            <a class="nav-link" routerLinkActive="active" routerLink="supplier-dashboard/myProduct">My Product</a>
+                        }@else{
+                            <a class="nav-link" routerLinkActive="active" routerLink="our-product">Our Product</a>
+
+                        }
+                    </li>
+                    <!-- <li class="nav-item cursor-pointer">
+                        <a class="nav-link">Discount & Offers</a>
+                    </li> -->
+                   }
+
+                </ul>
+
+                @if(currentUser){
+                <div class="dropdown ms-sm-3 header-item topbar-user" ngbDropdown
+                    style="background-color: rgba(255, 255, 255, 0.1);">
+                    <button type="button" class="btn p-0" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle header-profile-user" src="../../../assets/images/avatar-3.jpg"
+                                alt="Header Avatar">
+                            <!-- <span class="text-start ms-xl-2">
+                                    <span
+                                        class="d-none d-xl-inline-block ms-1 fs-10 text-muted user-name-text">{{this.currentUser.type
+                                        | titlecase}}</span>
+                                    <span
+                                        class="d-none d-xl-block ms-1 fs-12 fw-large user-name-sub-text"><b>{{this.currentUser.name}}</b></span>
+                                </span> -->
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end custom-dropdown-menu"
+                        style="border-radius: 10px; width: 190px;" ngbDropdownMenu>
+                        <div class="text-center" style="border-bottom: 1px solid rgb(235, 233, 233);">
+                            <img src="../../../assets/images/avatar-3.jpg"
+                                style="border-radius: 100px; max-height: 70px;" class="img-thumbnail" alt="">
+                            <h4 class="my-2 user-name-custom">{{this.currentUser.name}}</h4>
+                        </div>
+                        <a class="dropdown-item text-muted ">
+                            <span class="align-middle">{{this.currentUser.type}}</span></a>
+                        <a class="dropdown-item cursor-pointer" (click)="redirectToProfile()">
+                            <span class="align-middle">My Profile</span></a>
+                        <a class="dropdown-item cursor-pointer"
+                            (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/dashboard':'supplier-dashboard/dashboard')">
+                            <span class="align-middle">Dashboard</span></a>
+                        <a class="dropdown-item cursor-pointer" 
+                            (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/my-deals':'supplier-dashboard/my-deals')">
+                            <span class="align-middle">My Deals</span></a>
+
+                        @if(this.currentUser.type === this.userType.BUYER){
+                        <a class="dropdown-item cursor-pointer"
+                            (click)="onDashboardSelect('buyer-dashboard/fevourite-suppliers')">
+                            <span class="align-middle">My Favourite Suppliers</span></a>
+                        <a class="dropdown-item cursor-pointer"
+                            (click)="onDashboardSelect('buyer-dashboard/requested-products')">
+                            <span class="align-middle">Requested Products</span></a>
+                        }
+                        <a class="dropdown-item cursor-pointer"
+                        (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/fevourite-products':'supplier-dashboard/myProduct')">
+                            <span class="align-middle">{{this.currentUser.type== this.userType.BUYER ? 'My Favourite Products':'My Products'}}</span></a>
+                        <a class="dropdown-item cursor-pointer"
+                        (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/account-setting':'supplier-dashboard/Profile-setting')">
+                            <span class="align-middle">Account Setting</span></a>
+                        <a class="dropdown-item cursor-pointer"
+                        (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/change-password':'supplier-dashboard/change-password')">
+                            <span class="align-middle">Change Password</span></a>
+                        <a class="dropdown-item cursor-pointer" 
+                        (click)="onDashboardSelect(this.currentUser.type === this.userType.BUYER ?'buyer-dashboard/support':'supplier-dashboard/support')">
+                            <span class="align-middle">Support</span></a>
+                        <a class="dropdown-item" href="javascript: void(0);" (click)="logout()">
+                            <span class="align-middle" data-key="t-logout">Logout</span></a>
+                    </div>
+                </div>
+                }@else {
+                <button (click)="openSignInModal()" class="rightsidebtn">Sign
+                    in<img src="../../assets/Frame.png" alt=""> </button>
+                }
+            </div>
+        </nav>
+    </div>
+</header>

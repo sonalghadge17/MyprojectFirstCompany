@@ -1,0 +1,110 @@
+.full-view-card {
+    height: 15vh; 
+    width: 100%; 
+    position: relative;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid rgb(240, 239, 239);
+}
+
+.overlapping-card {
+    position: absolute;
+    top: 30px; 
+    left: 10%;
+    transform: translateX(-50%); 
+    z-index: 10; 
+    background-color: white; 
+    // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0.5rem;
+    border-radius: 8px; 
+}
+.overlapping-card-2 {
+    position: absolute;
+    top: -33%; 
+    left: 90%;
+    transform: translateX(-50%); 
+    z-index: 10; 
+    max-height: 170px;
+}
+
+.cName {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 17.6px;
+    opacity: 0.9;
+  }
+  
+  .supCountryName {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15.4px;
+    opacity: 0.5;
+    margin-left: 5px;
+  }
+  
+  .custom-deal-btn {
+    background-color: var(--blue-color);
+    border-radius: 10px;
+  
+  }
+  
+  .custom-deal-btn-txt {
+    color: rgba(251, 253, 254, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+  }
+  
+  .btn-primary-custom{
+    background-color: var(--blue-color);
+    border-radius: 10px;
+  
+  }
+  .img-rounded{
+    border-radius: 50%;
+  }
+
+
+
+
+   /* ========================================================================== */
+    /*                               product detail                               */
+    /* ========================================================================== */
+    .pdetail-title .title h1 {
+        font-size: 22px;
+    }
+
+    .pdetail-dec {
+        margin-top: 0px;
+        max-height: 65vh;
+    }
+
+    .pdetail-deal .col-md-12 .box {
+        padding: 10px 15px;
+    }
+
+    .pdetail-deal .btn {
+        padding: 8px 30px;
+        font-size: 14px;
+    }
+
+    .pdetail-title .title fa-icon {
+        font-size: 28px;
+    }
+
+    .pdetail-title .title img {
+        height: 28px;
+    }
+    .data-text{
+        font-weight: 500;
+    }
+
+    .card{
+        border-radius: 10px;
+        
+    }
+    .certi-card{
+        box-shadow: none;
+        border: 1px solid rgb(239, 239, 239);
+    }
