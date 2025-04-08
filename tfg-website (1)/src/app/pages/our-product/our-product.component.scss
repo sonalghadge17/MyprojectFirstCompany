@@ -1,0 +1,415 @@
+
+.heading {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 28.6px;
+  color: rgba(79, 88, 94, 1);
+}
+
+
+/* Style for the search box container */
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
+.wish-btn:hover{
+  background-color: rgba(230, 230, 230, 0.5);
+  border-color: rgba(230, 230, 230, 0.5);
+}
+
+/* Style for the input field */
+.search-box input {
+  width: 400px;
+  /* Adjust the width as per your need */
+  height: 50px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  padding-left: 40px;
+  /* Leave space for the icon */
+}
+
+/* Style for the search icon */
+.search-box i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+}
+
+/* Optional: Input field focus state */
+.search-box input:focus {
+  border-color: #007bff;
+  /* Change border color on focus */
+}
+
+.custom-filter-btn {
+  width: Hug (130px)px;
+  // height: Hug (0px)px;
+  top: 214px;
+  left: 1484px;
+  padding: 13px 20px 13px 20px;
+  gap: 10px;
+  border-radius: 10px;
+  opacity: 0px;
+
+}
+
+.filter-btn-txt {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--blue-color);;
+}
+
+
+
+// product card css
+.our-product-card {
+  border: 1px solid rgb(242, 242, 242) !important;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.p-name {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19.8px;
+  color: rgba(79, 88, 94, 1);
+
+}
+
+.p-price {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  color: rgba(79, 88, 94, 1);
+}
+
+.cName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17.6px;
+  opacity: 0.9;
+}
+
+.supCountryName {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15.4px;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+.custom-deal-btn {
+  background-color: var(--blue-color);
+  border-radius: 10px;
+
+}
+
+.custom-deal-btn-txt {
+  color: rgba(251, 253, 254, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.btn-primary-custom{
+  background-color: var(--blue-color);
+  border-radius: 10px;
+
+}
+.btn-light-custom{
+  background-color:rgba(251, 253, 254, 1);
+  border-radius: 10px;
+  border-color:var(--blue-color);
+  color:var(--blue-color);
+
+}
+
+.custom-view-btn {
+  background-color: none;
+  border: 1px solid var(--blue-color);;
+  border-radius: 10px;
+}
+
+.custom-view-btn-txt {
+  color: var(--blue-color);;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.popu-product {
+  // color:  rgba(35, 59, 119, 1);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17.6px;
+  opacity: 0.8;
+}
+
+
+
+
+.popular-products {
+  // background-color: #fff;
+  // border-radius: 12px;
+  // padding: 20px;
+  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  // font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+// .popular-products h3 {
+//     margin-bottom: 20px;
+//     font-size: 18px;
+//     color: #666;
+// }
+
+.product-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product {
+  text-align: center;
+  flex: 1;
+}
+
+.product img {
+  width: 80px;
+  /* Adjust the size of the product image */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15.4px;
+  margin: 5px 0;
+  color: rgba(79, 88, 94, 1);
+}
+
+.product span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17.6px;
+  color: rgba(79, 88, 94, 1);
+}
+
+.divider {
+  width: 1px;
+  background-color: #ddd;
+  height: 80px;
+  margin: 0 20px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+
+
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.custom-dropdown-menu {
+  animation: slideInRight 0.3s ease forwards;
+  position: absolute;
+  top: 120%;
+  left: -440px;
+  z-index: 1000;
+  background-color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 390px;
+  display: block;
+  opacity: 1;
+  overflow-y: visible !important;
+}
+
+@media (max-width: 768px) {
+  .custom-dropdown-menu {
+    left: -360px ;
+  }
+}
+
+.custom-dropdown-menu.hide {
+  animation: slideOutRight 0.3s ease forwards;
+  opacity: 0;
+}
+
+
+.fixed-filter {
+  position: fixed !important;
+  top: 190px;
+  right: 50px;
+  z-index: 1000 !important; 
+
+}
+
+
+
+// backdrop when opened dropdown
+.custom-backdrop {
+  position: fixed;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  z-index: 1040 !important;
+  /* Higher than normal content but lower than the dropdown */
+  display: none !important;
+}
+
+.show-backdrop {
+  display: block !important;
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  z-index: 1050;
+  /* Higher than the backdrop */
+}
+
+.hide {
+  display: none;
+}
+
+.custom-cancel-btn {
+  background-color: none;
+  border: 1px solid var(--blue-color);;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.custom-cancel-btn-txt {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: var(--blue-color);
+}
+.custom-apply-btn{
+  background-color: none;
+  background-color: var(--blue-color);
+  border-radius: 10px;
+  width: 100%;
+}
+.custom-apply-btn-txt {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(251, 253, 254, 1);
+}
+
+// filter modal 
+.filter-heading{
+  display:flex !important;
+  justify-content: space-between !important;
+  
+}
+.filter-heading h4{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  color: black;
+}
+.filter-heading span{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 19.8px;
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: #999;
+}
+
+// form
+.form-label{
+  opacity: 0.5 !important;
+  font-weight: 325 !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+}
+
+.form-select {
+  color: #000000 !important; /* Option text color */
+}
+
+
+
+/* Style for the search box container */
+.search-box-filter {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style for the input field */
+.search-box-filter input {
+  width: 400px;
+  /* Adjust the width as per your need */
+  height: 40px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  // padding-left: 4px;
+  /* Leave space for the icon */
+}
+
+/* Style for the search icon */
+.search-box-filter i {
+  position: absolute;
+  top: 50%;
+  // left: 15px;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+}
+
+// scroll for when more data 
+.slider-apply-class{
+  height: 375px;
+  overflow-y: auto;
+}
+
+
+
+
+
+
+

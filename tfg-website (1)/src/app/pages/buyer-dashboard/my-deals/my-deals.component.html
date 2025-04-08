@@ -1,0 +1,445 @@
+<div class="row">
+    <div class="col-md-5 col-lg-5 dashboard-header">
+        <h4>All Deals</h4>
+        <p class="mt-3">Check your deals and take a action acordingly</p>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col mb-2">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">Duration</span><span class="text-danger">*</span></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Custom Range</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">From Date</span><span class="text-danger">*</span></label>
+                    <input class="form-control" [(ngModel)]="currentDate" [ngModelOptions]="{standalone: true}"
+                        type="date">
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="form-group">
+                    <label for=""><span class="custom-label">To Date</span><span class="text-danger">*</span></label>
+                    <input class="form-control" [(ngModel)]="currentDate" [ngModelOptions]="{standalone: true}"
+                        type="date">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12 deals-navbar">
+        <ul>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2" [class.isActive]="isActiveTab(this.option.ALL)" (click)="onSelectBtn(this.option.ALL)">All Deals</button>
+            </li>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2" [class.isActive]="isActiveTab(this.option.COMPLETED)"  (click)="onSelectBtn(this.option.COMPLETED)">Completed</button>
+            </li>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2" [class.isActive]="isActiveTab(this.option.IN_PROCESS)"  (click)="onSelectBtn(this.option.IN_PROCESS)">In Process</button>
+            </li>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2" [class.isActive]="isActiveTab(this.option.REJECTED)"  (click)="onSelectBtn(this.option.REJECTED)">Rejected</button>
+            </li>
+        </ul>
+    </div>
+</div>
+                                    <!-- <img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" class="img-fluid" alt=""> -->
+
+
+
+<div class="row mt-2">
+    @if(this.selectedOption=== this.option.ALL){
+        @for(item of dataListAll; track item.id){
+            <div class="col-12">
+                <div class="card recent-deals-card p-2">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 text-end">
+                                <div class="product-date-time">{{item?.dateTime}}</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                    <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                    <img [src]="item.imgUrl" style="width: 100%; height: auto;" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="product-name">{{item?.name}} <span class="px-2 name-line">|</span> {{item?.dealPrice}}</div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                                                    <img [ngSrc]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                                                    <div>
+                                                    <img [ngSrc]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span class="supCountryName">{{item?.suppCountry}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col-lg-4 text-lg-end text-sm-start">
+                                                    <div class="other-details">Status</div>
+                                                    <div class="other-details-value">{{item?.status}}</div>
+                                                </div>
+                                            </div>
+
+                                            @if(item.isSuppResponse){
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr class="my-4 opacity-10">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="supp-resp-header">Supplier Response</div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12">
+                                                            <div class="mt-3">
+                                                                <div class="supp-res-change-prise">Requested to Change Price</div>
+                                                                <div class="product-name">{{item?.dealPrice}}</div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+                                                            <div class="mt-3">
+                                                            <div class="supp-res-change-prise">Comments</div>
+                                                            <div class="comments-details">{{item?.comments}}</div>
+                                                        </div></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    @if(item.isSuppResponse){
+                                                        <button (click)="acceptDeal(item)" class="btn accept-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Accept Deal</span></button> &nbsp;&nbsp;
+    
+                                                        <button  (click)="offerModel()"  class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Counter Offer</span></button>&nbsp;&nbsp;
+                                                    }
+
+                                                    <button (click)="cancelDeal(item)" class="btn cancel-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/cancel-btn-img.png" alt="">&nbsp;<span class="cancel-btn-text">Cancel Deal</span></button>
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        }
+   
+    }@else if(this.selectedOption=== this.option.COMPLETED){
+        @for(item of dataListCompleted; track item.id){
+            <div class="col-12">
+                <div class="card recent-deals-card p-2">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 text-end">
+                                <div class="product-date-time">{{item?.dateTime}}</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                    <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                    <img [src]="item.imgUrl" style="width: 100%; height: auto;" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="product-name">{{item?.name}} <span class="px-2 name-line">|</span> {{item?.dealPrice}}</div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                                                    <img [ngSrc]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                                                    <div>
+                                                    <img [ngSrc]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span class="supCountryName">{{item?.suppCountry}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col-lg-4 text-lg-end text-sm-start">
+                                                    <div class="other-details">Status</div>
+                                                    <div class="other-details-value">{{item?.status}}</div>
+                                                </div>
+                                            </div>
+
+                                            @if(item.isSuppResponse){
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr class="my-4 opacity-10">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="supp-resp-header">Supplier Response</div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12">
+                                                            <div class="mt-3">
+                                                                <div class="supp-res-change-prise">Requested to Change Price</div>
+                                                                <div class="product-name">{{item?.dealPrice}}</div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+                                                            <div class="mt-3">
+                                                            <div class="supp-res-change-prise">Comments</div>
+                                                            <div class="comments-details">{{item?.comments}}</div>
+                                                        </div></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                @if(item.isSuppResponse){
+                                                    <button class="btn accept-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Accept Deal</span></button> &nbsp;&nbsp;
+
+                                                    <button class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Counter Offer</span></button>&nbsp;&nbsp;
+                                                }
+
+                                                <button (click)="cancelDeal(item)" class="btn cancel-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/cancel-btn-img.png" alt="">&nbsp;<span class="cancel-btn-text">Cancel Deal</span></button>
+                                            </div>
+                                         
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        }
+
+    }@else if(this.selectedOption=== this.option.IN_PROCESS){
+        @for(item of dataListInProcess; track item.id){
+            <div class="col-12">
+                <div class="card recent-deals-card p-2">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 text-end">
+                                <div class="product-date-time">{{item?.dateTime}}</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                    <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                    <img [src]="item.imgUrl" style="width: 100%; height: auto;" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="product-name">{{item?.name}} <span class="px-2 name-line">|</span> {{item?.dealPrice}}</div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-2">
+                                                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                                                    <img [ngSrc]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                                                    <div>
+                                                    <img [ngSrc]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span class="supCountryName">{{item?.suppCountry}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col-lg-4 text-lg-end text-sm-start">
+                                                    <div class="other-details">Status</div>
+                                                    <div class="other-details-value">{{item?.status}}</div>
+                                                </div>
+                                            </div>
+
+                                            @if(item.isSuppResponse){
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr class="my-4 opacity-10">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="supp-resp-header">Supplier Response</div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12">
+                                                            <div class="mt-3">
+                                                                <div class="supp-res-change-prise">Requested to Change Price</div>
+                                                                <div class="product-name">{{item?.dealPrice}}</div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+                                                            <div class="mt-3">
+                                                            <div class="supp-res-change-prise">Comments</div>
+                                                            <div class="comments-details">{{item?.comments}}</div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                @if(item.isSuppResponse){
+                                                    <button class="btn accept-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Accept Deal</span></button> &nbsp;&nbsp;
+
+                                                    <button (click)="offerModel()"  class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Counter Offer</span></button>&nbsp;&nbsp;
+                                                }
+
+                                                <button (click)="cancelDeal(item)" class="btn cancel-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/cancel-btn-img.png" alt="">&nbsp;<span class="cancel-btn-text">Cancel Deal</span></button>
+                                            </div>
+                                         
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        }
+
+    }@else if(this.selectedOption=== this.option.REJECTED){
+        @for(item of dataListRejected; track item.id){
+            <div class="col-12">
+                <div class="card recent-deals-card p-2">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 text-end">
+                                <div class="product-date-time">{{item?.dateTime}}</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                    <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                    <img [src]="item.imgUrl" style="width: 100%; height: auto;" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="product-name">{{item?.name}} <span class="px-2 name-line">|</span> {{item?.dealPrice}}</div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                                                    <img [ngSrc]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                                                    <div>
+                                                    <img [ngSrc]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span class="supCountryName">{{item?.suppCountry}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="other-details">Total Weight</div>
+                                                    <div class="other-details-value">{{item?.totalWeight}}</div>
+                                                </div>
+                                                <div class="col-lg-4 text-lg-end text-sm-start">
+                                                    <div class="other-details">Status</div>
+                                                    <div class="other-details-value">{{item?.status}}</div>
+                                                </div>
+                                            </div>
+
+                                            @if(item.isSuppResponse){
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr class="my-4 opacity-10">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="supp-resp-header">Supplier Response</div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <!-- <div class="col-3">
+                                                            <div class="mt-3">
+                                                                <div class="supp-res-change-prise">Requested to Change Price</div>
+                                                                <div class="product-name">{{item?.dealPrice}}</div>
+                                                            </div>
+                                                        </div> -->
+                                                        
+                                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+                                                            <div class="mt-3">
+                                                            <div class="supp-res-change-prise">Comments</div>
+                                                            <div class="comments-details">{{item?.comments}}</div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                            <!-- 
+                                         <div class="row mt-3">
+                                                <div class="col">
+                                                    @if(item.isSuppResponse){
+                                                        <button class="btn accept-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Accept Deal</span></button> &nbsp;&nbsp;
+    
+                                                        <button class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Counter Offer</span></button>&nbsp;&nbsp;
+                                                    }
+
+                                                    <button class="btn cancel-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/cancel-btn-img.png" alt="">&nbsp;<span class="cancel-btn-text">Cancel Deal</span></button>
+                                                </div>
+                                             
+                                            </div>
+                                            -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        }
+
+    }
+
+</div>                                

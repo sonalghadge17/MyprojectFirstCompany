@@ -1,0 +1,87 @@
+.border-right-apply{
+    border-right: 1px solid rgb(226, 224, 224);
+}
+.border-right-remove{
+    border-right: none;
+    text-align: center;
+}
+
+.product-details h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17.6px;
+    color: rgba(79, 88, 94, 1);
+  }
+  
+  .product-details h3 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: rgba(79, 88, 94, 1);
+  }
+
+  .cName {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17.6px;
+    opacity: 0.9;
+  }
+  
+  .supCountryName {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15.4px;
+    opacity: 0.5;
+    margin-left: 6px;
+  }
+
+  // form
+.form-label{
+    opacity: 0.5 !important;
+    font-weight: 325 !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+  }
+
+  /* Style for the search box container */
+.search-box-filter {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style for the input field */
+  .search-box-filter input {
+    width: 100%;
+    // width: 200px;
+    /* Adjust the width as per your need */
+    height: 40px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    // padding-left: 4px;
+    /* Leave space for the icon */
+  }
+  
+  /* Style for the search icon */
+  .search-box-filter i {
+    position: absolute;
+    top: 50%;
+    // left: 15px;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #999;
+  }
+
+  ::ng-deep .ng-select .ng-select-container {
+    border-radius: 10px !important;
+    height: 40px !important; /* Adjust height of the select container */
+}
+.btn-primary{
+  background-color: var(--blue-color);
+  border-radius: 10px;
+}
+

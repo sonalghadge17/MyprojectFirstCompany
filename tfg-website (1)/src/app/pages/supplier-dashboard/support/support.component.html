@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h2 style="color: #39383A; font-weight: 500; font-size: 28px;">Support</h2>
+        <p style="font-weight: 400; font-size: 16px;">Raise your issue here </p>
+    </div>
+</div>
+<form [formGroup]="supportForm">
+    <div class="row mt-3">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+            <label style="color: #4F585E; font-size: 14px;">Select Query *</label>
+            <ng-select formControlName="queryId" placeholder="Select Query" ></ng-select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <label style="color: #4F585E; font-size: 14px;">Description</label>
+            <textarea class="form-control" formControlName="email" name="email" placeholder="Type Here..." rows="3"
+                id=""></textarea>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="form-group">
+                <label style="font-size: 14px; color: #4F585E;">Upload Screenshot <span>*</span></label>
+                <div class="row">
+                    <div class="col-6 col-md-4">
+                        <input type="file" class="form-control" id="myfile" name="myfile"
+                            (change)="onFileSelected($event)" style="width: 100px; height: 40px; border-radius: 10px;"
+                            formControlName="screenShot">
+                    </div>
+                    <div class="col-6 col-md-4 mt-md-0">
+                        <button class="btn w-10 h-auto"
+                            style="border-radius: 10px; background-color: #233B77; color: white; font-size: 14px;">Upload</button>
+                    </div>
+                    <div class="col-6 col-md-4 mt-2">
+                        <p style="font-weight: 500; color: #4F585E;"><b>{{ selectedFile?.name }}</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row mt-3">
+    <div class="col-12 col-md-4 mb-3">
+        <button class="btn"
+            style=" width: 35%; background-color: #233B77; color: white; border-radius: 10px; font-size: 16px; height: 44px;">
+            <img src="./../../../../assets/support_update.png" width="22px" height="22px" alt="">
+            Update
+        </button>
+        <button class="btn ms-3"
+            style=" width: 35%; background-color: #DFDFDF; color: black; border-radius: 10px; font-size: 16px; height: 44px;">
+            <img src="./../../../../assets/support_cross.png" width="22px" height="22px" alt="">
+            Cancel
+        </button>
+    </div>
+</div>

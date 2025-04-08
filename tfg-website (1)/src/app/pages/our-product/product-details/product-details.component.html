@@ -1,0 +1,270 @@
+<div class="row">
+    <div class="col-12">
+        <app-breadcrumbs [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 col-12">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 col-12">
+                <div class="card product-ima-card" style="border: 1 px;">
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            <img src="../../../../assets/certified-icon.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center d-flex align-items-center justify-content-center"
+                            style="padding: 5px 40px 40px 40px ; min-height: 240px;">
+                            <img [src]="productDetails?.imgUrl" class="img-fluid" alt="product">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 col-12" style="padding-left: 40px;">
+                <div style="margin-left: 5px;">
+                    <div class="p-name">{{productDetails?.name}}</div>
+                    <div class="p-price mt-2">{{productDetails?.dealPrice}}</div>
+                    <div class="mt-3">
+                        <span class="cName">{{productDetails?.companyName}}</span>&nbsp;
+                        <img [src]="productDetails.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                        <div>
+                            <img [src]="productDetails.flagUrl" height="20" width="20" class="img-fluid" alt=""><span
+                                class="supCountryName">{{productDetails?.suppCountry}}</span>
+                        </div>
+                    </div>
+                    <div class="my-3"><span class="supp-info">Supplier No</span><span
+                            class="supp-no">&nbsp;&nbsp;&nbsp;{{'455'}}</span></div>
+                    <div class="my-3"><span class="supp-info">Category</span><span
+                            class="supp-no">&nbsp;&nbsp;&nbsp;{{'Fruits & Vegetables'}}</span></div>
+                    <div class="view-more my-3 cursor-pointer">View more info</div>
+                    <div class="my-3 d-flex">
+                        <button class="btn btn-primary btn-primary-custom w-50" (click)="dealNow(productDetails)">Deal
+                            Now <img src="../../../../assets/deal-now-btn.png" width="15" class="d-inline-block"
+                                alt=""></button>
+                        <button class="btn btn-light wish-btn mx-auto cursor-pointer" style="border-radius: 10px;"
+                            (click)="addToWishlist(productDetails)">
+                            @if(productDetails.isWishlist===true){
+                            <img src="../../../../assets/heart-filled.png" height="25" alt="">
+                            }@else {
+                            <img src="../../../../assets/wishlist-icon.png" height="25" alt="">
+                            }
+                        </button>
+                        <button class="btn btn-light wish-btn mx-0" style="border-radius: 10px;">
+                            <img src="../../../../assets/home_retailer.png" height="25" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row additional-details mt-3">
+    <div class="col-lg-12">
+        <h4>Additional Info</h4>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12 deals-navbar">
+        <ul>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2"
+                    [class.isActive]="isActiveTab(this.option.PRODUCT_INFO)"
+                    (click)="onSelectBtn(this.option.PRODUCT_INFO)">Product Info &nbsp;
+                   <i class="ri-checkbox-circle-fill {{this.isActiveTab(this.option.PRODUCT_INFO) ? 'text-white':'text-light'}}"></i>
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2"
+                    [class.isActive]="isActiveTab(this.option.INGREDIENTS_INFO)"
+                    (click)="onSelectBtn(this.option.INGREDIENTS_INFO)">Ingredients Info &nbsp;
+                    <i class="ri-checkbox-circle-fill {{this.isActiveTab(this.option.INGREDIENTS_INFO) ? 'text-white':'text-light'}}"></i>
+                    </button>
+            </li>
+            <li>
+                <button class="btn btn-light cursor-pointer  mb-2"
+                    [class.isActive]="isActiveTab(this.option.MANUFACTURE_INFO)"
+                    (click)="onSelectBtn(this.option.MANUFACTURE_INFO)">Manufacture Info &nbsp;
+                    <i class="ri-checkbox-circle-fill {{this.isActiveTab(this.option.MANUFACTURE_INFO) ? 'text-white':'text-light'}}"></i>
+                    </button>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+@if(this.selectedOption === this.option.PRODUCT_INFO){
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card info-card p-4">
+            <div class="row">
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo_2; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}@else if(this.selectedOption === this.option.INGREDIENTS_INFO){
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card info-card p-4">
+            <div class="row" >
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo_2; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}@else if(this.selectedOption === this.option.MANUFACTURE_INFO){
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card info-card p-4">
+            <div class="row">
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-6 ">
+                    <div class="row">
+                        @for(item of productInfo_2; track $index){
+                        <div class="col-12 my-2">
+                            <span class="key-info">{{item.key}}</span>
+                            <span class="value-info">{{item.value}}</span>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div class="row additional-details mt-3">
+    <div class="col-lg-12">
+        <h4>Related Products</h4>
+    </div>
+</div>
+
+<div class="row mt-4">
+    @for(item of ourProductList; track $index){
+    <div class="col-lg-4 col-xl-4 col-xxl-3 col-md-6 col-sm-6">
+        <div class="card our-product-card">
+            <div class="row">
+                <div class="col-lg-12 text-end">
+                    <button class="btn btn-light m-2 wish-btn" style="border-radius: 10px;" (click)="addToWishlist(item)">
+                        @if(item.isWishlist===true){
+                            <img src="../../../assets/heart-filled.png" height="25" alt="">
+                        }@else {
+                            <img src="../../../assets/wishlist-icon.png" height="25"  alt="">
+                        }
+                    </button>
+                    <button class="btn btn-light m-2 wish-btn" style="border-radius: 10px;">
+                        <img src="../../../assets/home_retailer.png" height="25" class="img-fluid" alt=""></button>
+                </div>
+                <div class="col-lg-12 " >
+                    <div class="row mt-2">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 text-center" style="height: 100px;">
+                            <img [src]="item?.imgUrl" class="img-fluid" alt="product-image">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="p-name">{{item?.name}}</div>
+                            <div class="p-price mt-2">{{item?.dealPrice}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 my-3">
+                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                    <img [src]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                    <div>
+                        <img [src]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span
+                            class="supCountryName">{{item?.suppCountry}}</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 my-3 d-flex">
+                    
+                    <button class="btn btn-primary btn-primary-custom w-100" (click)="dealNow(item)">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;
+                    <button class="btn btn-light btn-light-custom w-100" (click)="viewDetails(item)">View Detail <img src="../../../assets/view-details-btn.png" width="15" class="d-inline-block" alt=""></button>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <hr class="my-3" style="opacity: 0.1;">
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="popular-products">
+                        <div class="popu-product">Popular products</div>
+                        <div class="product-container my-3">
+                            <div class="product">
+                                <img [src]="item.populerProducts[0].imgUrl" class="img-fluid" height="50" alt="Steak">
+                                <p>{{item.populerProducts[0].name}}</p>
+                                <span>{{item.populerProducts[0].price}}</span>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="product">
+                                <img [src]="item.populerProducts[1].imgUrl" class="img-fluid" height="50" alt="Pork">
+                                <p>{{item.populerProducts[1].name}}</p>
+                                <span>{{item.populerProducts[1].price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    }
+</div>

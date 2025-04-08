@@ -1,0 +1,144 @@
+<div class="row">
+    <div class="col-md-5 col-lg-5 dashboard-header">
+        <h4>All Deals</h4>
+        <p class="mt-3">Check your deals and take a action acordingly</p>
+    </div>
+    
+</div>
+<div class="row mt-2">
+   
+      
+        <div class="col-12">
+            <div class="card recent-deals-card p-2">
+              <div class="card-body">
+                <div class="row">
+                    <div class="col-12 text-end">
+                            <div class="product-date-time">{{"01 Aug 2024   |    12:00PM IST"}}</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                <img  [src]="imgUrlApple" style="width: 100%; height: auto;" alt="">
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="product-name">{{"Apple"}} <span class="px-2 name-line">|</span> {{"$ 2290 MT"}}</div>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="row">
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="other-details">Buyer Name</div>
+                                                <div class="other-details-value">{{"Sachin R"}}</div>
+                                            </div>
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="other-details">Location</div>
+                                                <div class="other-details-value">{{"INDIA"}}</div>
+                                            </div>
+                                            <div class="col mt-2">
+                                                <div class="other-details">Total Weight</div>
+                                                <div class="other-details-value">{{"2MT"}}</div>
+                                            </div>
+                                            <div class="col mt-2">
+                                                <div class="other-details">Total Weight</div>
+                                                <div class="other-details-value">{{"$ 2,290 MT"}}</div>
+                                            </div>
+                                            <div class="col-lg-4 text-lg-end text-sm-start mt-2">
+                                                <div class="other-details">Status</div>
+                                                <div class="other-details-value">{{'In Process'}}</div>
+                                            </div>
+                                        </div>
+
+                              
+
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                
+                                                    <button (click)="acceptDeal(this.data)"  class="btn accept-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/counter-offer-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Accept Deal</span></button> &nbsp;&nbsp;
+
+                                                    <button (click)="offerModel()" class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Counter Offer</span></button>&nbsp;&nbsp;
+                                                
+
+                                                <button (click)="cancelOffer()" class="btn cancel-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/cancel-btn-img.png" alt="">&nbsp;<span class="cancel-btn-text">Cancel Deal</span></button>
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card recent-deals-card p-2">
+              <div class="card-body">
+                <div class="row">
+                    <div class="col-12 text-end">
+                            <div class="product-date-time">{{"01 Aug 2024   |    12:00PM IST"}}</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12">
+                                <!-- <img [src]="item.imgUrl" height="50" class="img-fluid" alt=""> -->
+                                <img  [src]="imgUrl" style="width: 100%; height: auto;" alt="">
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="product-name">{{"Orange"}} <span class="px-2 name-line">|</span> {{"$ 2000 MT"}}</div>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="row">
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="other-details">Buyer Name</div>
+                                                <div class="other-details-value">{{"Ravi Kumar"}}</div>
+                                            </div>
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="other-details">Location</div>
+                                                <div class="other-details-value">{{"INDIA"}}</div>
+                                            </div>
+                                            <div class="col mt-2">
+                                                <div class="other-details">Total Weight</div>
+                                                <div class="other-details-value">{{"1MT"}}</div>
+                                            </div>
+                                            <div class="col mt-2">
+                                                <div class="other-details">Total Weight</div>
+                                                <div class="other-details-value">{{"$ 2,000 MT"}}</div>
+                                            </div>
+                                            <div class="col-lg-4 text-lg-end text-sm-start mt-2">
+                                                <div class="other-details">Status</div>
+                                                <div class="other-details-value">{{'Completed'}}</div>
+                                            </div>
+                                        </div>
+
+                              
+
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                
+                                        
+
+                                                    <button (click)="generateQR()" class="btn counter-btn text-white mb-2"><img src="../../../../assets/buyer-dashboard/accept-deal-btn.png" alt="">&nbsp;<span class="cancel-btn-text">Generate QR</span></button>&nbsp;&nbsp;
+                                                
+
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    
+</div>

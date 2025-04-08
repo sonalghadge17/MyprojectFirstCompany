@@ -1,0 +1,16 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button class="btn-close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body text-center">
+          <img src="../../../../../assets/cancel-icon.svg" alt="">
+          <p class="head" claas="mt-2">Hello {{this.currentUser ? this.currentUser?.name :'User'}}</p>
+          <p class="quest">are you sure you want to cancel this deal</p>
+          <button class="btn-no btn btn-primary">
+            <img src="../../../../../assets/no-icon.svg" alt=""> No
+          </button>
+          <button class="btn-yes btn btn-primary" (click)="modal.close()">
+            <img src="../../../../../assets/yes-icon.svg" alt=""> Yes
+          </button>
+    </div>
+</div>

@@ -1,0 +1,1181 @@
+
+
+@if(!currentUser || currentUser.type === this.userTypes.SELLER){
+
+<div class="without-login-show">
+
+
+<div class="row mt-5">
+    <div class="col-12 col-md-6">
+        <h1 class="justify-content-center position-relative header-line" style="color: #3C4150; font-weight: 500;z-index: 2;" >Welcome to <br> Transparent food</h1>
+        <div class="row d-flex justify-content-center mt-3" style="position: relative; z-index: 1;">
+            <div>
+                <img class="mb-3" src="./../../../../assets/home_supplier.png" width="25px" height="25px" alt="">
+                <span class="ms-1" style="font-size: 26px;"><b>20k +</b></span>
+                <span class="ms-2 mb-3" style="color: gray; font-size: 16px;"> Suppliers</span>
+                <span class="ms-2"><img src="./../../../assets/home_vertical.png" height="43px" alt=""></span>
+
+                <img class="mb-3 ms-3" src="./../../../../assets/home_retailer.png" width="25px" height="25px" alt="">
+                <span class="ms-1 mb-1" style="font-size: 26px;"><b>35k +</b></span>
+                <span class="ms-2 mb-4" style="color: gray; font-size: 16px;"> Retailers</span>
+                <span class="ms-2"><img src="./../../../assets/home_vertical.png" height="43px" alt=""></span>
+
+                <img class="mb-3 ms-3" src="./../../../../assets/home_countries.png" width="25px" height="25px" alt="">
+                <span class="ms-1" style="font-size: 26px;"><b>120</b></span>
+                <span class="ms-2 mb-4" style="color: gray; font-size: 16px;"> Countries</span>
+            </div>
+        </div>
+        <div class="row mt-3 search-bar">
+            <div class="card" style="width: 100%; max-width: 550px; height: 68px; border-radius: 15px;z-index: 1;">
+                <div class="row">
+                    <div class="col-8 mt-3">
+                        <input class="form-control" type="search" placeholder="Search here..."
+                            style="border: none;background: transparent;">
+                    </div>
+                    <div class="col-4 mt-2 text-end">
+                        <button class="btn btn-primary"
+                            style="width: 100%;max-width:125px; height: 54px; border-radius: 10px; font-size: 14px;">
+                            <img class="me-0" src="./../../../../assets/home_search.png" alt="">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-start position-relative" style="z-index: 2;">
+            <h4 style="color: #3C4150; font-size: 14px; font-weight: 500;">Trending Now</h4>
+            <div class="card mt-1 p-2 mx-1" style="width: 59px; height: 35px;">
+                <a class="mx-auto cursor-pointer" style="color:#233B77; font-size: 14px;">Apple</a>
+            </div>
+            <div class="card mt-1 p-2 mx-1" style="width: 59px; height: 35px;">
+                <a class="mx-auto cursor-pointer" style="color:#233B77; font-size: 14px;">Onion</a>
+            </div>
+            <div class="card mt-1 p-2 mx-1" style="width: 59px; height: 35px;">
+                <a class="mx-auto cursor-pointer" style="color:#233B77; font-size: 14px;">Ginger</a>
+            </div>
+            <div class="card mt-1 p-2 mx-1" style="width: 59px; height: 35px;">
+                <a class="mx-auto cursor-pointer" style="color:#233B77; font-size: 14px;">Rice</a>
+            </div>
+            <div class="card mt-1 p-2 mx-1" style="width: 59px; height: 35px;">
+                <a class="mx-auto cursor-pointer" style="color:#233B77; font-size: 14px;">Grain</a>
+            </div>
+        </div>
+     <div class="row mt-2">
+            <div class="row justify-content-center position-relative" style="z-index: 1;">
+                <div class="col-12 mb-0">
+                    <p style="font-size: 16px; margin-bottom: 3px;">Operate easily, strong filter, only 4 clicks for buyers could find
+                        wanted products.</p>
+                </div>
+                <!-- <div class="col-6 col-md-6 col-lg-4 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px; min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/choose_country.png" class="img-fluid" alt="Choose Country">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Choose Country</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-4 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px;min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/home_find_supplier_final.png" class="img-fluid"
+                                alt="Find Supplier">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Find Supplier</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-4 mb-chartdiv">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px;min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/select_category.png" class="img-fluid" alt="Select Category">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Select Category</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-4 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px; width:max-content; min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/transparent_supply.png" class="img-fluid"
+                                alt="Transparent Supply Chain">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Transparent Supply
+                                Chain.</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div> 
+    </div>
+    <!-- <div class="col-12 col-md-6 col-lg-4" style="position: relative; padding-top: 36.25%; /* Aspect Ratio 16:9 */">
+        <img style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+            src="./../../../../assets/home_subtractEarth.png" alt="">
+        <div id="chartdiv" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; "></div>
+    </div> -->
+    <!-- <div class="col-12 col-md-6">
+        <img style="position:absolute;margin-top:-136px; width: 822px; height: 822px;overlay:initial;" class="me-1"
+            src="./../../../../assets/home_subtractEarth.png" alt="">
+        <div id="chartdiv" style="width: 100%; height: 100%; margin-top: -60px; margin-left: 70px;"></div>
+    </div> -->
+    <div class="col-12 col-md-6 " style="position: relative;">
+        <img src="./../../../assets/home_earth_subtract_final.png"
+            style="width: auto; height: auto; position: absolute; top: 45%; left: 58%; transform: translate(-50%, -50%); z-index: auto;">
+
+        <div id="chartdiv" class="earth"></div>
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="col-lg-7 col-md-7 col-xl-7 col-12">
+            <div class="row justify-content-center position-relative" style="z-index: 1;">
+                <!-- <div class="col-12 mb-3">
+                    <p style="font-size: 16px;">Operate easily, strong filter, only 4 clicks for buyers could find
+                        wanted products.</p>
+                </div> -->
+                <div class="col-6 col-md-6 col-lg-3 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card" 
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px; min-height: 78px; margin-left: 1px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/choose_country.png" class="img-fluid" alt="Choose Country">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Choose Country</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px;min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/home_find_supplier_final.png" class="img-fluid"
+                                alt="Find Supplier">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Find Supplier</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 mb-chartdiv">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px;min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/select_category.png" class="img-fluid" alt="Select Category">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Select Category</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 mb-3">
+                    <div class="card p-2 bg-light cursor-pointer custom-card"
+                        style="background-color: rgba(255, 255, 255, 0.5);border: none; border-radius: 15px; width:max-content; min-height: 78px;">
+                        <div class="d-flex align-items-center">
+                            <img src="./../../../assets/transparent_supply.png" class="img-fluid"
+                                alt="Transparent Supply Chain">
+                            <span class="ms-1" style="font-size: 14px; font-weight: 400;">Transparent Supply
+                                Chain.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3 ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="card p-1 mx-auto cursor-pointer" routerLink="/our-product"
+                style="background-color: rgba(255, 255, 255, 0.5); width: 100%; max-width: 221px; height: auto; border-radius: 15px;">
+                <img class="mx-auto mt-2" style="width: 107px; height: 57px;" src="./../../../../assets/home_food.png"
+                    alt="">
+                <p class="mx-auto mt-2 category-name" style="font-size: 18px;"><b>Processed Food</b></p>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_vol.png" alt="">
+                        <p style="font-size: 14px;"><b>300MT</b> <br><span
+                                style="font-size: 12px; color: gray;">Volume</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_value.png" alt="">
+                        <p style="font-size: 14px;"><b>$3.5B</b> <br><span
+                                style="font-size: 12px; color: gray;">Value</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_supply.png" alt="">
+                        <p style="font-size: 14px;"><b>2340</b> <br><span
+                                style="font-size: 12px; color: gray;">Supplier</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="card p-1 mx-auto cursor-pointer" routerLink="/our-product"
+                style="background-color: rgba(255, 255, 255, 0.5); width: 100%; max-width: 221px; height: auto; border-radius: 15px;">
+                <img class="mx-auto mt-2" style="width: 107px; height: 57px;" src="./../../../../assets/home_dairy.png"
+                    alt="">
+                <p class="mx-auto mt-2 category-name" style="font-size: 18px;"><b>Dairy & Eggs</b></p>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_vol.png" alt="">
+                        <p style="font-size: 14px;"><b>300MT</b> <br><span
+                                style="font-size: 12px; color: gray;">Volume</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_value.png" alt="">
+                        <p style="font-size: 14px;"><b>$3.5B</b> <br><span
+                                style="font-size: 12px; color: gray;">Value</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_supply.png" alt="">
+                        <p style="font-size: 14px;"><b>2340</b> <br><span
+                                style="font-size: 12px; color: gray;">Supplier</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="card p-1 mx-auto cursor-pointer" routerLink="/our-product"
+                style="background-color: rgba(255, 255, 255, 0.5); width: 100%; max-width: 221px; height: auto; border-radius: 15px;">
+                <img class="mx-auto mt-2" style="width: 107px; height: 57px;" src="./../../../../assets/home_meat.png"
+                    alt="">
+                <p class="mx-auto mt-2 category-name" style="font-size: 18px;"><b>Meat & Poultry</b></p>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_vol.png" alt="">
+                        <p style="font-size: 14px;"><b>300MT</b> <br><span
+                                style="font-size: 12px; color: gray;">Volume</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_value.png" alt="">
+                        <p style="font-size: 14px;"><b>$3.5B</b> <br><span
+                                style="font-size: 12px; color: gray;">Value</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_supply.png" alt="">
+                        <p style="font-size: 14px;"><b>2340</b> <br><span
+                                style="font-size: 12px; color: gray;">Supplier</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="card p-1 mx-auto cursor-pointer" routerLink="/our-product"
+                style="background-color: rgba(255, 255, 255, 0.5); width: 100%; max-width: 221px; height: auto; border-radius: 15px;">
+                <img class="mx-auto mt-2" style="width: 107px; height: 57px;" src="./../../../../assets/home_fruit.png"
+                    alt="">
+                <p class="mx-auto mt-2 category-name" style="font-size: 18px;"><b>Fruits & Vegetables</b></p>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_vol.png" alt="">
+                        <p style="font-size: 14px;"><b>300MT</b> <br><span
+                                style="font-size: 12px; color: gray;">Volume</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_value.png" alt="">
+                        <p style="font-size: 14px;"><b>$3.5B</b> <br><span
+                                style="font-size: 12px; color: gray;">Value</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_supply.png" alt="">
+                        <p style="font-size: 14px;"><b>2340</b> <br><span
+                                style="font-size: 12px; color: gray;">Supplier</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="card p-1 mx-auto cursor-pointer" routerLink="/our-product"
+                style="background-color: rgba(255, 255, 255, 0.5); width: 100%; max-width: 221px; height: auto; border-radius: 15px;">
+                <img class="mx-auto mt-2" style="width: 107px; height: 57px;" src="./../../../../assets/home_fish.png"
+                    alt="">
+                <p class="mx-auto mt-2 category-name" style="font-size: 18px;"><b>Fish</b></p>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_vol.png" alt="">
+                        <p style="font-size: 14px;"><b>300MT</b> <br><span
+                                style="font-size: 12px; color: gray;">Volume</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_value.png" alt="">
+                        <p style="font-size: 14px;"><b>$3.5B</b> <br><span
+                                style="font-size: 12px; color: gray;">Value</span> </p>
+                    </div>
+                    <div class="col-4">
+                        <img style="width: 20px; height: 20px;" src="./../../../../assets/home_supply.png" alt="">
+                        <p style="font-size: 14px;"><b>2340</b> <br><span
+                                style="font-size: 12px; color: gray;">Supplier</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <p class="h2 font-weight-bold ms-3">Top Suppliers</p>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <p class="h5">Discover the Best Suppliers Tailored to Your Specific Criteria</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <a class="text-danger h5" style="cursor: pointer;"><strong><u>See All</u></strong></a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card p-3"
+                    style="border-radius: 15px; height: auto; background-color: rgba(255, 255, 255, 0.5);">
+                    <img src="./../../../assets/supplier_arvind.png" width="60px" height="60px" alt="">
+                    <p class="mt-2" style="color: #4F585E; font-size: 16px;">Arvind Fruits & Co.
+                        <img src="./../../../assets/supplier_blue_tick.png" class="img-fluid" alt="">
+                    </p>
+                    <p style="font-size: 16px; color: #4F585E;">
+                        <img src="./../../../assets/supplier_india_flag.png" class="img-fluid" alt="">
+                        <span class="ms-2">India</span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Company Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Private Enterprise</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Products Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Meat, Processed food</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">ISO9001 *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Yes</b></span>
+                    </p>
+                    <hr class="m-0 p-0">
+                    <p class="mt-1" style="color: #4F585E; font-size: 16px;">Popular products</p>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Apple</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Grapes</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Orange</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <!-- <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px; max-width: 150px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button> -->
+                            <button class="btn btn-primary btn-primary-custom w-80">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;&nbsp;
+                            <img src="./../../../assets/supplier_deal_now_home.png" hie class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <img src="./../../../assets/supplier_deal_now_home.png" class="img-fluid" alt="">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card p-3"
+                    style="border-radius: 15px; height: auto; background-color: rgba(255, 255, 255, 0.5);">
+                    <img src="./../../../assets/supplier_naing_shang.png" width="60px" height="60px" alt="">
+                    <p class="mt-2" style="color: #4F585E; font-size: 16px;">Naing Shang Pin Food Co.Ltd
+                        <img src="./../../../assets/supplier_blue_tick.png" class="img-fluid" alt="">
+                    </p>
+                    <p style="font-size: 16px; color: #4F585E;">
+                        <img src="./../../../assets/supplier_china_flag.png" class="img-fluid" alt="">
+                        <span class="ms-2">China</span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Company Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Private Enterprise</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Products Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Meat, Processed food</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">ISO9001 *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Yes</b></span>
+                    </p>
+                    <hr class="m-0 p-0">
+                    <p class="mt-1" style="color: #4F585E; font-size: 16px;">Popular products</p>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Apple</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Grapes</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Orange</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <!-- <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px; max-width: 150px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button> -->
+                            <button class="btn btn-primary btn-primary-custom w-80">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;&nbsp;
+                            <img src="./../../../assets/supplier_deal_now_home.png" hie class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <img src="./../../../assets/supplier_deal_now_home.png" class="img-fluid" alt="">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card p-3"
+                    style="border-radius: 15px; height: auto; background-color: rgba(255, 255, 255, 0.5);">
+                    <img src="./../../../assets/supplier_manjunatha.png" width="60px" height="60px" alt="">
+                    <p class="mt-2" style="color: #4F585E; font-size: 16px;">Manjunatha & Co.
+                        <img src="./../../../assets/supplier_blue_tick.png" class="img-fluid" alt="">
+                    </p>
+                    <p style="font-size: 16px; color: #4F585E;">
+                        <img src="./../../../assets/supplier_china_flag.png" class="img-fluid" alt="">
+                        <span class="ms-2">China</span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Company Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Private Enterprise</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Products Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Meat, Processed food</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">ISO9001 *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Yes</b></span>
+                    </p>
+                    <hr class="m-0 p-0">
+                    <p class="mt-1" style="color: #4F585E; font-size: 16px;">Popular products</p>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Apple</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Grapes</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Orange</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <!-- <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px; max-width: 150px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button> -->
+                            <button class="btn btn-primary btn-primary-custom w-80">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;&nbsp;
+                            <img src="./../../../assets/supplier_deal_now_home.png" hie class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary w-100"
+                                style="border-radius: 10px;width: 100%; height: auto; font-size: 16px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <img src="./../../../assets/supplier_deal_now_home.png" class="img-fluid" alt="">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card p-3"
+                    style="border-radius: 15px; height: auto; background-color: rgba(255, 255, 255, 0.5);">
+                    <img src="./../../../assets/supplier_ahemad.png" width="60px" height="60px" alt="">
+                    <p class="mt-2" style="color: #4F585E; font-size: 16px;">Ahemad & Co.
+                        <img src="./../../../assets/supplier_blue_tick.png" class="img-fluid" alt="">
+                    </p>
+                    <p style="font-size: 16px; color: #4F585E;">
+                        <img src="./../../../assets/supplier_pak_flag.png" class="img-fluid" alt="">
+                        <span class="ms-2">India</span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Company Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Private Enterprise</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">Products Category *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Meat, Processed food</b></span>
+                    </p>
+                    <p style="font-size: 14px; color: #4F585E;">ISO9001 *
+                        <span style="font-size: 14px;color: #4F585E;"><b>Yes</b></span>
+                    </p>
+                    <hr class="m-0 p-0">
+                    <p class="mt-1" style="color: #4F585E; font-size: 16px;">Popular products</p>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Apple</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Grapes</b></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card mt-1 p-1" style="width: 100%; background-color: #F4F4F4;">
+                                <a class="mx-auto cursor-pointer"
+                                    style="color:#4F585E; font-size: 14px;"><b>Orange</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <!-- <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px; max-width: 150px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button> -->
+                            <button class="btn btn-primary btn-primary-custom w-80">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;&nbsp;
+                            <img src="./../../../assets/supplier_deal_now_home.png" hie class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary"
+                                style="border-radius: 10px;width: 100%; height: 100%; font-size: 16px;">
+                                Deal Now <img src="./../../../assets/supplier_deal_now_tick.png" class="img-fluid"
+                                    alt="">
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <img src="./../../../assets/supplier_deal_now_home.png" class="img-fluid" alt="">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <p class="h2 font-weight-bold">Featured Products</p>
+            </div>
+            <div class="col-12 col-md-6 text-md-end text-end">
+                <a class="text-danger h5" routerLink="/our-product" style="cursor: pointer;"><strong><u>See All</u></strong></a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            @for(item of ourProductList; track $index){
+                @if($index < 4){
+                    <div class="col-lg-4 col-xl-4 col-xxl-3 col-md-6 col-sm-6">
+                        <div class="card our-product-card">
+                            <div class="row">
+                                <div class="col-lg-12 text-end">
+                                    <button class="btn btn-light m-2 wish-btn" style="border-radius: 10px;" (click)="addToWishlist(item)">
+                                        @if(item.isWishlist===true){
+                                            <img src="../../../assets/heart-filled.png" height="25" alt="">
+                                        }@else {
+                                            <img src="../../../assets/wishlist-icon.png" height="25"  alt="">
+                                        }
+                                    </button>
+                                    <button class="btn btn-light m-2 wish-btn" style="border-radius: 10px;">
+                                        <img src="../../../assets/home_retailer.png" height="25" class="img-fluid" alt=""></button>
+                                </div>
+                                <div class="col-lg-12 " >
+                                    <div class="row mt-2">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 text-center" style="height: 100px;">
+                                            <img [src]="item?.imgUrl" class="img-fluid" alt="product-image">
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <div class="p-name">{{item?.name}}</div>
+                                            <div class="p-price mt-2">{{item?.dealPrice}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 my-3">
+                                    <span class="cName">{{item?.companyName}}</span>&nbsp;
+                                    <img [src]="item.twitterBlueTagUrl" height="20" width="20" class="img-fluid" alt="">
+                                    <div>
+                                        <img [src]="item.flagUrl" height="20" width="20" class="img-fluid" alt=""><span
+                                            class="supCountryName">{{item?.suppCountry}}</span>
+                                    </div>
+                                </div>
+                
+                                <div class="col-lg-12 my-3 d-flex">
+                                    
+                                    <button class="btn btn-primary btn-primary-custom w-100" (click)="dealNow(item)">Deal Now <img src="../../../assets/deal-now-btn.png" width="15" class="d-inline-block" alt=""></button>&nbsp;&nbsp;
+                                    <button class="btn btn-light btn-light-custom w-100" style="margin-left: auto;" (click)="viewDetails(item)">View Detail <img src="../../../assets/view-details-btn.png" width="14" class="d-inline-block" alt=""></button>
+                                    <!-- <div class="row d-flex justify-content-betweem">
+                                        <div class="col">
+                                            <button class="btn custom-deal-btn d-flex justify-content-betweem" (click)="dealNow(item)">
+                                                <span class="d-inline-block custom-deal-btn-txt">Deal Now</span>&nbsp;&nbsp;
+                                                <img src="../../../assets/deal-now-btn.png" class="img-fluid" height="20" class="d-inline-block" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn custom-view-btn d-flex justify-content-betweem">
+                                                <span class="d-inline-block custom-view-btn-txt">View Detail</span>&nbsp;&nbsp;
+                                                <img src="../../../assets/view-details-btn.png" class="img-fluid" height="20" class="d-inline-block" alt="">
+                                            </button>
+                                        </div>
+                                    </div> -->
+                                </div>
+                
+                                <div class="col-lg-12">
+                                    <hr class="my-3" style="opacity: 0.1;">
+                                </div>
+                
+                                <div class="col-lg-12">
+                                    <div class="popular-products">
+                                        <div class="popu-product">Popular products</div>
+                                        <div class="product-container my-3">
+                                            <div class="product">
+                                                <img [src]="item.populerProducts[0].imgUrl" class="img-fluid" height="50" alt="Steak">
+                                                <p>{{item.populerProducts[0].name}}</p>
+                                                <span>{{item.populerProducts[0].price}}</span>
+                                            </div>
+                                            <div class="divider"></div>
+                                            <div class="product">
+                                                <img [src]="item.populerProducts[1].imgUrl" class="img-fluid" height="50" alt="Pork">
+                                                <p>{{item.populerProducts[1].name}}</p>
+                                                <span>{{item.populerProducts[1].price}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                
+                            </div>
+                
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+      
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 mt-5 d-flex align-items-center justify-content-center">
+                <img src="./../../../assets/home_world_with_pics.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6 col-sm-12 mt-5">
+                <p style="font-size:33px; font-weight: 500;margin-left: 50px;">There's an <span
+                        style="color: red;">Transparent</span>Food <br> around. Always.</p>
+                <p style="font-size: 20px; font-weight: 400; color: #3C4150;margin-left: 50px;">User-friendly. More
+                    Ease. More Affordable.</p>
+                <div class="row mt-3">
+                    <div class="col-auto">
+                        <p style="font-size: 24px; font-weight: 600; color: #3C4150;margin-left: 50px;">20
+                            <br>
+                            <span style="font-size: 16px; font-weight: 400; color: #3C4150;">Countries</span>
+                        </p>
+                    </div>
+                    <div class="col-auto">
+                        <p style="font-size: 24px; font-weight: 600; color: #3C4150;margin-left: 50px;">1452+
+                            <br>
+                            <span style="font-size: 16px; font-weight: 400; color: #3C4150;">Suppliers</span>
+                        </p>
+                    </div>
+                    <div class="col-auto">
+                        <p style="font-size: 24px; font-weight: 600; color: #3C4150;margin-left: 50px;">6725+
+                            <br>
+                            <span style="font-size: 16px; font-weight: 400; color: #3C4150;">Deals We Completed</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-3" style="margin-left: 30px;">
+                    <div class="col-md-6 col-sm-12">
+                        <ul>
+                            <li class="my-2" style="color:#FE94F1; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">China</span></li>
+                            <li class="my-2" style="color:#FF4FA4; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">United States</span></li>
+                            <li class="my-2" style="color:#846B3B; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">Germany</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <ul>
+                            <li class="my-2" style="color:#FAA422; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">India</span></li>
+                            <li class="my-2" style="color:#436CC5; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">United Kingdom</span></li>
+                            <li class="my-2" style="color:#61B92E; font-size: 20px;"><span
+                                    style="color:#3C4150; font-size: 20px;">Pakistan</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-end customizer-setting cursor-pointer" (click)="environmentSustainabilityModal()">
+            <img class="img-fluid" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas"
+                aria-controls="theme-settings-offcanvas"
+                style="width: 75px; height: 75px; position: fixed; bottom: 125px; right: 20px;"
+                src="./../../../assets/home_env_logo.png" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-end customizer-setting">
+            <div ngbDropdown class="d-inline-block " [class.fixed-filter]="isDropdownOpen" placement="bottom">
+                <!-- <button class="btn rounded-pill shadow-lg p-2" data-bs-toggle="offcanvas" (click)="toggleDropdown()"
+                    data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas"
+                    style="background-color: #FE3744;color: #fff;width:75px;height:75px;position: fixed; bottom: 20px; right: 20px;">
+                    <img class="img-fluid" style="width: 25px; height: 25px;" src="./../../../../assets/home_chat.png"
+                        alt=""> <br>
+                    Chat
+                </button> -->
+
+                <!-- Backdrop -->
+                <div class="custom-backdrop" (click)="onBackdropClick()" [ngClass]="{'show-backdrop': isDropdownOpen}">
+                </div>
+
+                <!-- Dropdown Menu start-->
+                <div ngbDropdownMenu aria-labelledby="dropdownForm1" [class.isMessageScreen]="this.selectedNavbar == this.chatNavEnum.MESSAGES"
+                    [ngClass]="{'custom-dropdown-menu': isDropdownOpen, 'hide': !isDropdownOpen}">
+                    <!---------- home ---------->
+                    @if(this.selectedNavbar == this.chatNavEnum.HOME){
+                    <div class="row px-2">
+                        <div class="co-lg-12 mt-2 mb-5 chat-head">
+                            <img src="../../../assets/chat/image (1).png" class="img-1" alt="">
+                            <img src="../../../assets/chat/image (2).png" class="img-2" alt="">
+                            <img src="../../../assets/chat/image (3).png" class="img-3" alt="">
+                        </div>
+                        <div class="co-lg-12 mt-5 ">
+                            <h5 class="text-muted h4-custom">HI 👋</h5>
+                            <h5 class="h4-custom">How can we help?</h5>
+                        </div>
+                        <div class="co-lg-12 mt-3">
+                            <div class="card p-3" style="box-shadow: var(--custom-box-shodow-color);">
+                                <div class="row">
+                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 sms-text">
+                                        Send us message
+                                    </div>
+                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 text-end">
+                                        <img src="../../../assets/chat/right-arrow.png" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card p-3 home-page-li" style="box-shadow: var(--custom-box-shodow-color);">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="sms-text">Select Service</div>
+                                        <div class="main-list">
+                                            <ul class="list">
+                                                @for(item of listOfServices; track $index ){
+                                                <li class="list-items" (click)="onSelectService(item)">
+                                                    <span>{{item?.name ? item.name: '-'}}</span>
+                                                    <span><i
+                                                            class="ri-arrow-right-s-line fs-18 text-primary"></i></span>
+                                                </li>
+                                                }
+                                                <!-- <li class="list-items">
+                                                    <span>Testing Service</span>
+                                                    <span><i
+                                                            class="ri-arrow-right-s-line fs-18 text-primary"></i></span>
+                                                </li>
+                                                <li class="list-items">
+                                                    <span>Product Quality Inspection Service</span>
+                                                    <span><i
+                                                            class="ri-arrow-right-s-line fs-18 text-primary"></i></span>
+                                                </li>
+                                                <li class="list-items">
+                                                    <span>Other Technical Support</span>
+                                                    <span><i
+                                                            class="ri-arrow-right-s-line fs-18 text-primary"></i></span>
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    }@else if(this.selectedNavbar == this.chatNavEnum.MESSAGES){
+                    <!----------- Messages---------- -->
+                    <div class="row" >
+                        <div class="col-lg-12 p-2" [class.isChatScreen]="this.selectedNavbar == this.chatNavEnum.MESSAGES ">
+                            <div class="row">
+                                <div class="col-lg-6 d-flex align-items-center">
+                                    <i class="ri-arrow-left-s-line cursor-pointer text-light" (click)="onSelect(this.chatNavEnum.HOME)"
+                                        style="font-size: 35px;"></i> &nbsp;&nbsp; <span class="text-light" style="font-size: 17px">Message</span>
+                                </div>
+                                    <div class="col-lg-6 chat-head-mgs" >
+                                        <img src="../../../assets/chat/image (1).png" style="height: 35px;"  class="img-1" alt="">
+                                        <img src="../../../assets/chat/image (2).png" style="height: 35px;"  class="img-2" alt="">
+                                        <img src="../../../assets/chat/image (3).png"  style="height: 35px;" class="img-3" alt="">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 main-page-listt">
+                             <div class="row">
+                                <div class="col text-start mt-5">
+                                    <div class="d-flex flex-row justify-content-start">
+                                        <img src="../../../assets/account-setting-img.png"
+                                          alt="avatar 1" style="width: 40px; height: 100%;">
+                                        <div>
+                                          <p class="small p-2 ms-3 mb-1 rounded-3 bg-body-tertiary">Hello 👋! Please briefly describe your issue so we can help you better</p>
+                                          <p class="small ms-3 mb-3 rounded-3 text-muted">Bot . 5m . ago</p>
+                                        </div>
+                                      </div>
+                                </div>
+                             </div>
+                          
+                        </div>
+                    </div>
+
+                        }@else if(this.selectedNavbar == this.chatNavEnum.HELP){
+                        <!---------- help ---------->
+                        <div class="row px-2">
+                            <div class="col-lg-12 d-flex align-items-center mb-3">
+                                <i class="ri-arrow-left-s-line cursor-pointer" (click)="onSelect(this.chatNavEnum.HOME)"
+                                    style="font-size: 35px;"></i> &nbsp;&nbsp; <span style="font-size: 17px">Help</span>
+                            </div>
+                            <!-- show only services  -->
+                            @if(!isServiceFormOpen && isCongratsUi=== false){
+                            <div class="co-lg-12 mt-3">
+                                <div class="card p-3" style="box-shadow: var(--custom-box-shodow-color);">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 sms-text">
+                                            Send us message
+                                        </div>
+                                        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 text-end">
+                                            <img src="../../../assets/chat/right-arrow.png" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card p-3" style="box-shadow: var(--custom-box-shodow-color);">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="sms-text">4 Services</div>
+                                            <div class="main-list main-page-listt">
+                                                <ul>
+                                                    @for(item of listOfServices; track $index ){
+                                                    <li class="list-items-help" (click)="onSelectService(item)">
+                                                        <span>
+                                                            <h5 style="color: black;">{{item?.name ? item.name: '-'}}
+                                                            </h5>
+                                                            <p>{{item?.description ? item.description: '-'}}</p>
+                                                        </span>
+                                                        <span
+                                                            class="text-center d-flex justify-content-center align-items-center"><i
+                                                                class="ri-arrow-right-s-line text-primary"
+                                                                style="font-size: 30px;"></i></span>
+                                                    </li>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }@else if(isServiceFormOpen && isCongratsUi=== false){
+                            <!-- show form for services -->
+                            <div class="co-lg-12 mt-3">
+                                <div class="list-items-help">
+                                    <span>
+                                        <h5 style="color: black;">{{this.selectedServiceItem?.name ?
+                                            this.selectedServiceItem.name: '-'}}</h5>
+                                        <p>{{this.selectedServiceItem?.description ?
+                                            this.selectedServiceItem.description: '-'}}</p>
+                                    </span>
+                                </div>
+                                <div class="chat-form mt-3 main-page-listt">
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" placeholder="Supplier Name *">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" placeholder="Product Name *">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option class="default-option" selected>Product Category *</option>
+                                            <option value="Processed Food">Processed Food</option>
+                                            <option value="Dairy & Eggs">Dairy & Eggs</option>
+                                            <option value="Meat & Poultry">Meat & Poultry</option>
+                                            <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <textarea class="form-control" name="" id=""
+                                            placeholder="Quality Requirement Description" rows="1"></textarea>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" placeholder="Location">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <textarea class="form-control" name="" id=""
+                                            placeholder="Additional Requirement " rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" placeholder="Expect Assessment Time">
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <button class="btn btn-primary custom-primary-btn w-100"
+                                            (click)="onSubmitForm()">Submit &nbsp;<i
+                                                class="ri-check-double-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            }@else if(isCongratsUi){
+                            <!-- success ui  -->
+                            <div class="co-lg-12 mt-3">
+                                <div class="row success-modal">
+                                    <div class="col-12">
+                                        <div class="image-container">
+                                            <img src="../../../../assets/sign-up/Group 8.png" alt="shape" class="shape">
+                                            <img src="../../../../assets/sign-up/circle.png" alt="circle"
+                                                class="center-circle">
+                                            <span class="circle-text">{{'O'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 text-center">
+                                        <h5 class="user-heading mt-3">Congratulations</h5>
+                                        <div class="user-email mt-3">{{'Your ticket has been raised successfully'}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 ticket-container text-center">
+                                        <i class="ri-customer-service-line text-muted" style="font-size: 20px;"></i>
+                                        <div class="mt-3"><span class="ticket-name">Ticket ID</span> &nbsp;&nbsp;<span
+                                                class="ticket-id">TFG1765398</span>
+                                            &nbsp;&nbsp;<span><i class="ri-file-copy-line"></i></span></div>
+                                        <div class="mt-2 mx-3 text-muted">Check your email we have sent you all the
+                                            details on your register email id </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            }
+
+                        </div>
+                        }
+
+
+                        @if(!isCongratsUi && this.selectedNavbar != this.chatNavEnum.MESSAGES){
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <nav class="chat-navbar">
+                                    <ul>
+                                        <li (click)="onSelect(this.chatNavEnum.HOME)">
+                                            @if(this.selectedNavbar === this.chatNavEnum.HOME){
+                                            <i class="ri-home-3-fill icon-size-filled"></i>
+                                            }@else {
+                                            <i class="ri-home-3-line icon-size"></i>
+                                            }
+                                            <h5
+                                                [class.text-color-custom]="this.selectedNavbar === this.chatNavEnum.HOME">
+                                                Home</h5>
+                                        </li>
+                                        <li (click)="onSelect(this.chatNavEnum.MESSAGES)">
+                                            @if(this.selectedNavbar === this.chatNavEnum.MESSAGES){
+                                            <i class="ri-question-answer-fill icon-size-filled"></i>
+                                            }@else {
+                                            <i class="ri-question-answer-line icon-size"></i>
+                                            }
+                                            <h5
+                                                [class.text-color-custom]="this.selectedNavbar === this.chatNavEnum.MESSAGES">
+                                                Messages</h5>
+                                        </li>
+                                        <li (click)="onSelect(this.chatNavEnum.HELP)">
+                                            @if(this.selectedNavbar === this.chatNavEnum.HELP){
+                                            <i class="ri-question-fill icon-size-filled"></i>
+                                            }@else {
+                                            <i class="ri-question-line icon-size"></i>
+                                            }
+                                            <h5
+                                                [class.text-color-custom]="this.selectedNavbar === this.chatNavEnum.HELP">
+                                                Help</h5>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        }
+                        @if(this.selectedNavbar == this.chatNavEnum.MESSAGES){
+                            <div class="row">
+                                <div class="col-lg-12 chat-input">
+                                    <input type="text" class="form-control" placeholder="Message">
+                                    <a class="ms-3 text-muted"><i class='bx bx-smile smile-icon'></i></a>
+                                    <a class="ms-3 text-muted"><i class="ri-attachment-2 pin-icon"></i></a>
+                                    <a class="ms-3 text-muted cursor-pointer"><i class="ri-send-plane-2-line send-icon"></i></a>
+                                    
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                    <!-- Dropdown Menu end-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="popoverVisible" [style.top.px]="popoverPosition.top" [style.left.px]="popoverPosition.left"
+        class="popover-container">
+        <div class="popover-arrow"></div>
+        <div class="popover-content">
+            <!-- <strong>{{ popoverData?.name }}</strong><br>
+    Latitude: {{ popoverData?.latitude }}<br>
+    Longitude: {{ popoverData?.longitude }}<br>
+    <button class="btn btn-link p-0" (click)="openModal(popoverData)">More details</button> -->
+            <img class="img-fluid" style="width: 87px; height: 87px; border-radius: 70px; border: 3px solid white;"
+                src="{{popoverData?.flag}}" alt="">
+
+        </div>
+    </div>
+    <div *ngIf="popoverVisible" [style.top.px]="popoverPosition.top" [style.left.px]="popoverPosition.left"
+        class="popover-container1">
+        <div class="popover-arrow1"></div>
+        <div class="popover-content1">
+            <!-- <strong>{{ popoverData?.name }}</strong><br>
+      Latitude1: {{ popoverData?.latitude }}<br>
+      Longitude1: {{ popoverData?.longitude }}<br>
+      <button class="btn btn-link p-0" (click)="openModal(popoverData)">More details</button> -->
+            <div class="modal-body ev_table">
+                <div class="row text-end">
+                    <div class="col-12">
+                        <img class="cursor-pointer" src="./../../../assets/modal_close.png" width="24px" height="24px"
+                            alt="">
+                    </div>
+                </div>
+
+                <div class="row mmap_head">
+                    <div class="col-auto">
+                        <h3>
+                            <b style="margin-right: 10px; color: rgba(60, 65, 80, 1); font-size: 26px;">
+                                {{popoverData?.name
+                                | uppercase}}</b> <img [src]="popoverData?.flag" class="mb-2"
+                                style="width: 34px; height:22px;" alt="">
+                        </h3>
+                    </div>
+                    <!-- <div class="col-auto">
+                    <button class="btn btn-outline-light">
+                        <img src="./../../../assets/modal_close.png" width="24px" height="24px" alt="">
+                    </button>
+                </div> -->
+                </div>
+                <div class="row">
+                    <div class="col table-responsive m-0" style="border-radius: 10px;">
+                        <table class="table table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="bg-light1"></th>
+                                    <th>F&V</th>
+                                    <th>Dairy & eggs</th>
+                                    <th>Processed</th>
+                                    <th>M & P</th>
+                                    <th>Fish</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bg-light">Supplier</td>
+                                    <td>1500</td>
+                                    <td>454</td>
+                                    <td>5453</td>
+                                    <td>678</td>
+                                    <td>467</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-light">Export Value</td>
+                                    <td>$2B</td>
+                                    <td>$1B</td>
+                                    <td>$0.53B</td>
+                                    <td>$1B</td>
+                                    <td>$0.2B</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 bg-light m-0 p-0" style="border-radius: 10px;">
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <i class="ri-money-dollar-circle-line fs-24"
+                                    style="color: red; text-align: center; padding-left: 10px; padding-bottom: -10px; "></i>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="m-0 p-0">
+                                    <b style="color: black;">$3.10B</b>
+
+                                </h3><small>Export Value(USD)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 bg-light p-1" style="border-radius: 10px;">
+                        <div class="row mt-2">
+                            <div class="col-2">
+                                <i class="ri-money-dollar-circle-line fs-24"
+                                    style="color: red; text-align: center; padding-left: 10px; padding-bottom: -10px; "></i>
+                            </div>
+                            <div class="col-8 ms-2">
+                                <h3 class="m-0 p-0 ">
+                                    <b style="color: black;">2534</b>
+
+                                </h3><small>Total Suppliers</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 mt-1">
+                        <div class="row">
+                            <div class="col-auto ">
+                                <button class="btn" (click)="openCountryProductDetails()"
+                                    style="color: white; background-color: rgba(35, 59, 119, 1); border-radius: 10px; width: 100%; height: 54px; font-size: 16px;">
+                                    View More
+                                    <img src="./../../../assets/view_more_arrow.png" style="width: 24px; height: 24px;"
+                                        alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+}
+
+@else if(currentUser && currentUser.type === this.userTypes.BUYER ){
+    <app-buyer-home></app-buyer-home>
+}
+
+

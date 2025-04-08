@@ -1,0 +1,79 @@
+img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.selected-card {
+    border: 2px solid #0032b0 !important;
+}
+
+.tick-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.stepper-header[_ngcontent-ng-c625643793] .steps[_ngcontent-ng-c625643793] .step[_ngcontent-ng-c625643793] {
+    text-align: start !important;
+    font-size: 1em;
+}
+
+.active-step {
+    background-color: #233B77;
+    color: white;
+    border-color: #233B77;
+}
+
+.inactive-step {
+    background-color: #e1e5f0;
+    color: #233B77;
+    border-color: #fff;
+}
+
+#chartdiv {
+  position: relative; /* Changed to relative to align with its parent */
+  width: 100%; /* Make the width responsive */
+  height: 500px; /* Adjust height to fit your design */
+  margin: 0 auto; /* Center align the map horizontally */
+}
+
+.popover-container {
+  position: absolute;
+  background-color: white;
+  border: 1px solid rgba(132, 144, 238, 0.3);
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1005;
+  transform: translateX(-50%); /* Center the popover horizontally */
+  width: 325px;
+  height: 225px;
+  border-radius: 30px;
+  /* Ensure it appears above the map */
+  pointer-events: auto; /* Ensure the popover is clickable */
+}
+
+.popover-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid white; /* Arrow color matches the popover background */
+  bottom: 50%; /* Position the arrow above the popover */
+  left: 100%; /* Center the arrow horizontally */
+  transform: translateX(-50%); /* Center the arrow horizontally */
+  /* Adjust for border-radius of the popover */
+  border-radius: 12px;
+}
+  
+  .custom-popover {
+    h4 {
+      margin: 0;
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  }
